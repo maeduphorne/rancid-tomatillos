@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import movieData from './movieData';
+import movieData from '../../movieData';
 // import Ideas from './Components/Ideas';
 // import Form from './Components/Form';
 import './App.css';
