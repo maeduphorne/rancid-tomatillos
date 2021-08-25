@@ -10,6 +10,7 @@ const MoviesArea = (props) => {
       title={movie.title}
       rating={movie.average_rating}
       poster={movie.poster_path}
+      key={movie.id}
       />
     )
   })
