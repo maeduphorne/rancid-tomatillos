@@ -8,8 +8,8 @@ const MoviesArea = (props) => {
     return (
       <MovieCard
       title={movie.title}
-      average_rating={movie.average_rating}
-      poster_path={movie.poster_path}
+      rating={movie.average_rating}
+      poster={movie.poster_path}
       />
     )
   })
