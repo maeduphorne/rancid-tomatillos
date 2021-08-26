@@ -5,7 +5,7 @@ const MovieCard = ({ title, poster, rating, id }) => {
   // console.log(MoviesArea)
   return (
     <div className='card'>
-      <img class='poster' src={poster}/>
+      <img className='poster' src={poster}/>
     </div>
   )
 }
