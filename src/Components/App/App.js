@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import movieData from '../../movieData';
 import MoviesArea from '../MoviesArea/MoviesArea'
+import MovieInfo from '../MovieInfo/MovieInfo'
 import './App.css';
 
 class App extends Component {
@@ -8,24 +9,28 @@ class App extends Component {
     super();
     this.state = {
       movies: movieData.movies,
-      selectedMovie: []
+      selectedMovie: [
+
+      ]
     }
   }
 
   displayMovie = (id) => {
     // console.log(id)
     const findMovie = this.state.movies.find(movie => movie.id === id);
-    // console.log(findMovie)
+    console.log("clicked movie:", findMovie)
+    console.log("selected movie:", this.state.selectedMovie)
     this.setState({ selectedMovie: findMovie })
-    console.log(this.state.selectedMovie)
+    console.log("selected movie title only:", this.state.selectedMovie.title)
   }
 
   render() {
     return (
       <main className='App'>
         <h1>Rancid Tomatillos</h1>
-        {this.state.selectedMovie === 1 && <p>{this.state.selectedMovie.title}</p>}
+        {this.state.selectedMovie === 1 && <h4>{this.state.selectedMovie.title}</h4>}
         <MoviesArea movies={this.state.movies} displayMovie={this.displayMovie} />
+        <MovieInfo movie={this.state.selectedMovie}/>
       </main>
     )
   }
