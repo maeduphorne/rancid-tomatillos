@@ -27,6 +27,8 @@ class App extends Component {
         {!this.state.selectedMovie.length && <MoviesArea movies={this.state.movies} displayMovie={this.displayMovie}/>}
         <MovieInfo selectedMovie={this.state.selectedMovie}/>
       </main>
+        // ln 27 if ^  this.state.selectedMovie length is null then return regular movie grid,
+        // ln 28 else ^ return movie info component 
     )
 
   }
