@@ -17,6 +17,7 @@ class App extends Component {
     const clickedMovie = this.state.movies.find(movie => movie.id === id);
 
     this.state.selectedMovie.length ? this.setState({selectedMovie: []}) : this.setState({selectedMovie: [clickedMovie]})
+    //if the length is 0 then keep empty, if not, set state to the clicked movie
   }
 
   render() {
