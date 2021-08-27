@@ -28,7 +28,7 @@ const MovieInfo = (props) => {
                 <p className='genres'>Genre: {movie.genres}</p>
                 <p>Budget: {movie.budget}</p>
                 <p>Revenue: {movie.revenue}</p>
-                <button>Return Home</button>
+                <button onClick={props.displayHomePage}>Return Home</button>
             </div>
           </section>
         </section>
