@@ -9,30 +9,25 @@ class App extends Component {
     super();
     this.state = {
       movies: movieData.movies,
-      selectedMovie: [
-
-      ]
+      selectedMovie: []
     }
   }
 
   displayMovie = (id) => {
-    // console.log(id)
-    const findMovie = this.state.movies.find(movie => movie.id === id);
-    console.log("clicked movie:", findMovie)
-    console.log("selected movie:", this.state.selectedMovie)
-    this.setState({ selectedMovie: findMovie })
-    console.log("selected movie title only:", this.state.selectedMovie.title)
+    const clickedMovie = this.state.movies.find(movie => movie.id === id);
+
+    this.state.selectedMovie.length ? this.setState({selectedMovie: []}) : this.setState({selectedMovie: [clickedMovie]})
   }
 
   render() {
     return (
       <main className='App'>
         <h1>Rancid Tomatillos</h1>
-        {this.state.selectedMovie === 1 && <h4>{this.state.selectedMovie.title}</h4>}
-        <MoviesArea movies={this.state.movies} displayMovie={this.displayMovie} />
-        <MovieInfo movie={this.state.selectedMovie}/>
+        {!this.state.selectedMovie.length && <MoviesArea movies={this.state.movies} displayMovie={this.displayMovie}/>}
+        <MovieInfo selectedMovie={this.state.selectedMovie}/>
       </main>
     )
+
   }
 }
 

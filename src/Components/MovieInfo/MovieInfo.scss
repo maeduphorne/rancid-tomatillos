@@ -1,0 +1,113 @@
+// Movie Info Total Container
+.movie-info-container {
+  height: 80vh;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Banner */
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25vh;
+  background: #1A0D0D;
+  position: relative;
+  overflow: hidden;
+
+  .backdrop {
+    opacity: 0.4;
+    width: 100vw;
+  }
+
+  .title {
+    position: absolute;
+    font-size: 4vw;
+    text-align: center;
+    width: 90%;
+    color: white;
+  }
+}
+
+/* Movie Info Section */
+.movie-info {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  height: 100%;
+}
+
+/* Left Poster Side */
+.info-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.poster {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 75%;
+  width: 60%;
+
+   img {
+    max-height: 100%;
+    max-width: 100%;
+    border-radius: 5px;
+  }
+  
+  .tagline {
+    margin-top: 2vw;
+    font-size: 1.5vw;
+    color: white;
+    text-shadow: 0.5px 2px black;
+  }
+}
+
+
+/* Right Info Side */
+.info-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-items: flex-start;
+  height: 100%;
+  color: white;
+
+  p {
+    margin: 1vw;
+    font-size: 1.3vw;
+  }
+}
+
+.right-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 85%;
+  padding: 2vw;
+  background-color: rgba(0, 0, 0, 0.623);
+}
+
+ button {
+  width: 11vw;
+  height: 2.5vw;
+  margin-top: 1.5vw;
+  align-self: center;
+  font-size: 1.2vw;
+  background-color: rgba(0, 0, 0, 0.906);
+  border: 2px solid white;
+  border-radius: 3px;
+  color: white;
+
+  &:hover {
+    background-color: rgba(255, 0, 0, 0.392);
+    color: white;
+  }
+}
