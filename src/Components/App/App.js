@@ -20,7 +20,7 @@ class App extends Component {
     //if the length is 0 then keep empty, if not, set state to the clicked movie
   }
 
-    displayHomePage = () => {
+  displayHomePage = () => {
     this.setState({
       movies: movieData.movies,
       selectedMovie: []})

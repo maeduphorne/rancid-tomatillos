@@ -8,7 +8,7 @@ const MoviesArea = (props) => {
     return (
       <MovieCard
       key={movie.id} 
-      movieCard={movie} 
+      movieObj={movie} 
       displayMovie={props.displayMovie}
       />
     )
