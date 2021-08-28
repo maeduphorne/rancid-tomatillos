@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import movieData from '../../movieData';
 import MoviesArea from '../MoviesArea/MoviesArea'
 import MovieInfo from '../MovieInfo/MovieInfo'
-import fetchMoviesData from '../API/APICalls';
+import APICalls from '../API/APICalls';
 import './App.css';
 
 class App extends Component {
@@ -16,7 +16,7 @@ class App extends Component {
   }
 
    componentDidMount = () => {
-   fetchMoviesData()
+   APICalls.fetchMoviesData()
    .then(data => this.setState({movies:[ ...this.state.movies,...data.movies]}))
    .catch(error => this.setState({error: 'ERROR: Something went wrong!!'}))
  }
