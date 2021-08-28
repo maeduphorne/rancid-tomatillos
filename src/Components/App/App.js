@@ -1,17 +1,26 @@
 import React, { Component } from 'react';
-import movieData from '../../movieData';
+// import movieData from '../../movieData';
 import MoviesArea from '../MoviesArea/MoviesArea'
 import MovieInfo from '../MovieInfo/MovieInfo'
+import fetchMoviesData from '../API/APICalls';
 import './App.css';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      movies: movieData.movies,
-      selectedMovie: []
+      movies: [],
+      selectedMovie: [],
+      error: ''
     }
   }
+
+   componentDidMount = () => {
+   fetchMoviesData()
+   .then(data => this.setState({movies:[ ...this.state.movies,...data.movies]}))
+   .catch(error => this.setState({error: 'ERROR: Something went wrong!!'}))
+ }
+
 
   displayMovie = (id) => {
     const clickedMovie = this.state.movies.find(movie => movie.id === id);
@@ -22,7 +31,6 @@ class App extends Component {
 
   displayHomePage = () => {
     this.setState({
-      movies: movieData.movies,
       selectedMovie: []})
   }
 
