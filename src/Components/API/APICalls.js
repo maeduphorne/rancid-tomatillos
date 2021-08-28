@@ -1,6 +1,6 @@
 const APICalls = {
     fetchMoviesData() {
-        return  fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+        return  fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movie')
         .then(response =>response.json())
         .catch(error => console.log(error.message))
     },

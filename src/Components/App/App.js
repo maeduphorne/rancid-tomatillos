@@ -11,14 +11,14 @@ class App extends Component {
     this.state = {
       movies: [],
       selectedMovie: [],
-      error: ''
+      errorKey: ''
     }
   }
 
    componentDidMount = () => {
    APICalls.fetchMoviesData()
    .then(data => this.setState({movies:[ ...this.state.movies,...data.movies]}))
-   .catch(error => this.setState({error: 'ERROR: Something went wrong!!'}))
+   .catch(error => this.setState({errorKey: 'error'}))
  }
 
 
@@ -38,11 +38,12 @@ class App extends Component {
     return (
       <main className='App'>
         <h1>Rancid Tomatillos</h1>
+        {this.state.errorKey && <h2>{this.state.errorKey}</h2>}
         {!this.state.selectedMovie.length && <MoviesArea movies={this.state.movies} displayMovie={this.displayMovie}/>}
         <MovieInfo selectedMovie={this.state.selectedMovie} displayHomePage={this.displayHomePage}/>
       </main>
         // ln 27 if ^  this.state.selectedMovie length is null then return regular movie grid,
-        // ln 28 else ^ return movie info component 
+        // ln 28 else ^ return movie info component
     )
 
   }
