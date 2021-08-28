@@ -7,10 +7,9 @@ const MoviesArea = (props) => {
   const movieCards = props.movies.map(movie => {
     return (
       <MovieCard
-      title={movie.title}
-      rating={movie.average_rating}
-      poster={movie.poster_path}
       key={movie.id}
+      movieObj={movie}
+      displayMovie={props.displayMovie}
       />
     )
   })

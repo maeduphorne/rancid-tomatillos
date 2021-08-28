@@ -1,11 +1,10 @@
 import React from 'react';
 import './MovieCard.css';
 
-const MovieCard = ({ title, poster, rating, id }) => {
-  // console.log(MoviesArea)
+const MovieCard = ({ movieObj, displayMovie }) => {
   return (
-    <div className='card'>
-      <img className='poster' src={poster}/>
+    <div className='movie-card'>
+      <img className='movie-poster' src={movieObj.poster_path} onClick={() => displayMovie(movieObj.id)}/>
     </div>
   )
 }
