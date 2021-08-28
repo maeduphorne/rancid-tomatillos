@@ -2,7 +2,7 @@ import React from 'react';
 
 const MovieInfo = (props) => {
   console.log('props', props.selectedMovie.movie)
-  // return props.selectedMovie.movie.map(movie => {
+
     return (
       <section className='movie-info-container' key={props.selectedMovie.id}>
         <section className="banner">
@@ -33,9 +33,13 @@ const MovieInfo = (props) => {
             </div>
           </section>
         </section>
+        <section className='movie-trailer'>
+          <iframe width="560" height="315" src={`https://www.youtube.com/embed/${props.movieTrailer[0].key}`}
+            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+          </iframe>
+        </section>
       </section>
     )
-  // })
 };
 
 export default MovieInfo
