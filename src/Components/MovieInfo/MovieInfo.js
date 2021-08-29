@@ -1,40 +1,44 @@
 import React from 'react';
 
 const MovieInfo = (props) => {
-  return props.selectedMovie.map(movie => {
+  console.log('props', props.selectedMovie.movie)
+
     return (
-      <section className='movie-info-container' key={movie.id}>
+      <section className='movie-info-container' key={props.selectedMovie.id}>
         <section className="banner">
           <img
             className="backdrop"
-            src={movie.backdrop_path}
-            alt={`backdrop for ${movie.title}`}
+            src={props.selectedMovie.backdrop_path}
+            alt={`backdrop for ${props.selectedMovie.title}`}
           />
-          <h2 className="title">{movie.title}</h2>
+          <h2 className="title">{props.selectedMovie.title}</h2>
         </section>
         <section className='movie-info'>
           <section className='info-left'>
             <div className='poster'>
-              <img src={movie.poster_path} alt='movie poster'/>
-              <p className='tagline'>Heres a tagline till api.</p>
+              <img src={props.selectedMovie.poster_path} alt={`movie poster for ${props.selectedMovie.title}`}/>
+              <p className='tagline'>{props.selectedMovie.tagline}</p>
             </div>
           </section>
           <section className='info-right'>
             <div className='right-wrapper'>
-              <p>Overview: {movie.overview}</p>
-              <p> Release Date: {movie.release_date}</p>
-              <p>Runtime: {movie.runtime} minutes</p>
-              <p> Average Rating: {Math.round(movie.average_rating * 100)/100} / 10</p>
-              <p className='genres'>Genre: {movie.genres}</p>
-              <p>Budget: {movie.budget}</p>
-              <p>Revenue: {movie.revenue}</p>
+              <p>Overview: {props.selectedMovie.overview}</p>
+              <p> Release Date: {props.selectedMovie.release_date}</p>
+              <p>Runtime: {props.selectedMovie.runtime} minutes</p>
+              <p> Average Rating: {Math.round(props.selectedMovie.average_rating * 100)/100} / 10</p>
+              <p className='genres'>Genre: {props.selectedMovie.genres}</p>
+              <p>Budget: {props.selectedMovie.budget}</p>
+              <p>Revenue: {props.selectedMovie.revenue}</p>
               <button onClick={props.displayHomePage}>Return Home</button>
             </div>
           </section>
         </section>
+        <section className='movie-trailer'>
+          {props.movieTrailer.length && <iframe width="560" height="315" src={`https://www.youtube.com/embed/${props.movieTrailer[0].key}`} title="YouTube video player">
+          </iframe>}
+        </section>
       </section>
     )
-  })
 };
 
 export default MovieInfo
