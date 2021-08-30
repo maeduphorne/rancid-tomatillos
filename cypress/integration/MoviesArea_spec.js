@@ -19,4 +19,16 @@ describe('Movie area flows', () => {
     cy.get('div[class="movie-card"]').find("img").should('be.visible');
   });
 
+    it('should be able to return error if api fails', () => {
+    cy.intercept({
+    method: 'GET',
+    url: 'https://rancid-tomatillos.herokuapp.com/api/v2/movies',
+    },
+    {
+    statusCode: 404,
+    })
+    .visit('http://localhost:3000')
+    .get('h2').contains('Oops! Looks like something went wrong')
+  });
+
 });
