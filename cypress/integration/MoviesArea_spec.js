@@ -3,10 +3,6 @@ describe('Movie area flows', () => {
     cy.visit('http://localhost:3000');
   });
 
-  it('Should confirm that true is equal to true', () => {
-    expect(true).to.equal(true)
-  });
-
   it('Should have a header with text Rancid Tomatillos on load', () => {
     cy.contains('h1', 'Rancid Tomatillos')
   });
@@ -19,7 +15,7 @@ describe('Movie area flows', () => {
     cy.get('div[class="movie-card"]').find("img").should('be.visible');
   });
 
-    it('should be able to return error if api fails', () => {
+  it('should be able to return error if api fails', () => {
     cy.intercept({
     method: 'GET',
     url: 'https://rancid-tomatillos.herokuapp.com/api/v2/movies',
@@ -28,7 +24,7 @@ describe('Movie area flows', () => {
     statusCode: 404,
     })
     .visit('http://localhost:3000')
-    .get('h2').contains('Oops! Looks like something went wrong')
+    .contains('h2', 'Oops! Looks like something went wrong')
   });
 
 });

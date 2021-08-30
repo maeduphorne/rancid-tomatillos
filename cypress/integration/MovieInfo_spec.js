@@ -1,5 +1,5 @@
 describe('Movie info flows', () => {
-    beforeEach(() => {
+  beforeEach(() => {
     cy.visit('http://localhost:3000');
   });
 
@@ -7,5 +7,5 @@ describe('Movie info flows', () => {
     expect(true).to.equal(true)
   });
 
-  
+
 });
