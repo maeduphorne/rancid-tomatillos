@@ -7,6 +7,10 @@ describe('Movie area flows', () => {
     expect(true).to.equal(true)
   });
 
+  it('Should have a header with text Rancid Tomatillos on load', () => {
+    cy.contains('h1', 'Rancid Tomatillos')
+  });
+
   it('should be able to fill out the movie area with movie posters', () => {
     cy.intercept({
     method: 'GET',
