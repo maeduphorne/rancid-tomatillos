@@ -1,40 +1,39 @@
 import React from 'react';
 
 const MovieInfo = (props) => {
-  console.log('props', props.selectedMovie.movie)
-
+  const {selectedMovie, displayHomePage, movieTrailer,} = props;
     return (
-      <section className='movie-info-container' key={props.selectedMovie.id}>
+      <section className='movie-info-container' key={selectedMovie.id}>
         <section className="banner">
           <img
             className="backdrop"
-            src={props.selectedMovie.backdrop_path}
-            alt={`backdrop for ${props.selectedMovie.title}`}
+            src={selectedMovie.backdrop_path}
+            alt={`backdrop for ${selectedMovie.title}`}
           />
-          <h2 className="title">{props.selectedMovie.title}</h2>
+          <h2 className="title">{selectedMovie.title}</h2>
         </section>
         <section className='movie-info'>
           <section className='info-left'>
             <div className='poster'>
-              <img src={props.selectedMovie.poster_path} alt={`movie poster for ${props.selectedMovie.title}`}/>
-              <p className='tagline'>{props.selectedMovie.tagline}</p>
+              <img src={selectedMovie.poster_path} alt={`movie poster for ${selectedMovie.title}`}/>
+              <p className='tagline'>{selectedMovie.tagline}</p>
             </div>
           </section>
           <section className='info-right'>
             <div className='right-wrapper'>
-              <p>Overview: {props.selectedMovie.overview}</p>
-              <p> Release Date: {props.selectedMovie.release_date}</p>
-              <p>Runtime: {props.selectedMovie.runtime} minutes</p>
-              <p> Average Rating: {Math.round(props.selectedMovie.average_rating * 100)/100} / 10</p>
-              <p className='genres'>Genre: {props.selectedMovie.genres}</p>
-              <p>Budget: {props.selectedMovie.budget}</p>
-              <p>Revenue: {props.selectedMovie.revenue}</p>
-              <button onClick={props.displayHomePage}>Return Home</button>
+              <p>Overview: {selectedMovie.overview}</p>
+              <p> Release Date: {selectedMovie.release_date}</p>
+              <p>Runtime: {selectedMovie.runtime} minutes</p>
+              <p> Average Rating: {Math.round(selectedMovie.average_rating * 100)/100} / 10</p>
+              <p className='genres'>Genre: {selectedMovie.genres}</p>
+              <p>Budget: {selectedMovie.budget}</p>
+              <p>Revenue: {selectedMovie.revenue}</p>
+              <button onClick={displayHomePage}>Return Home</button>
             </div>
           </section>
         </section>
-        <section className='movie-trailer'>
-          {props.movieTrailer.length && <iframe width="560" height="315" src={`https://www.youtube.com/embed/${props.movieTrailer[0].key}`} title="YouTube video player">
+        <section className='trailer'>
+          {movieTrailer.length && <iframe width="560" height="315" src={`https://www.youtube.com/embed/${props.movieTrailer[0].key}`} title="YouTube video player">
           </iframe>}
         </section>
       </section>
