@@ -1,18 +1,19 @@
+const baseURL = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies'
 const APICalls = {
     fetchMoviesData() {
-        return  fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+        return  fetch(`${baseURL}`)
         .then(response =>response.json())
         .catch(error => console.log(error.message))
     },
 
     fetchSingleMovieData(id) {
-        return  fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
+        return  fetch(`${baseURL}/${id}`)
         .then(response =>response.json())
         .catch(error => console.log(error.message))
     },
 
     fetchMovieVideoData(id) {
-        return  fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}/videos`)
+        return  fetch(`${baseURL}/${id}/videos`)
         .then(response =>response.json())
         .catch(error => console.log(error.message))
     }
