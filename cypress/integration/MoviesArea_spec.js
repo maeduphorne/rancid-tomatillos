@@ -6,4 +6,13 @@ describe('Movie area flows', () => {
   it('Should confirm that true is equal to true', () => {
     expect(true).to.equal(true)
   });
+
+  it('should be able to fill out the movie area with movie posters', () => {
+    cy.intercept({
+    method: 'GET',
+    url: 'https://rancid-tomatillos.herokuapp.com/api/v2/movies',
+    })
+    cy.get('div[class="movie-card"]').find("img").should('be.visible');
+  });
+
 });
