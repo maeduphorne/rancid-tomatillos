@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import movieData from '../../movieData';
+import { Route } from 'react-router-dom'
 import MoviesArea from '../MoviesArea/MoviesArea'
 import MovieInfo from '../MovieInfo/MovieInfo'
 import APICalls from '../API/APICalls';
