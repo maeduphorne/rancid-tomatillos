@@ -10,8 +10,6 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      selectedMovie: null,
-      movieTrailer: '',
       error: ''
     }
   }
@@ -22,15 +20,17 @@ class App extends Component {
     .catch(error => this.setState({error: 'Oops! Looks like something went wrong'}))
   }
 
-  displayMovie = (id) => {
-    APICalls.fetchSingleMovieData(id)
-    .then(data => this.state.selectedMovie ? this.setState({selectedMovie: ''}) : this.setState({selectedMovie: data}))
-    .catch(error => this.setState({error: 'Oops! We are unable to display this movie'}))
-
-    APICalls.fetchMovieVideoData(id)
-    .then(data => this.setState({movieTrailer: data.videos}))
-    .catch(error => this.setState({error: 'Oops! We are unable to display this trailer'}))
-  }
+  // displayMovie = (id) => {
+  //   APICalls.fetchSingleMovieData(id).then(data => {
+  //     return
+  //       this.state.selectedMovie ? this.setState({selectedMovie: ''}) : this.setState({selectedMovie: data.movie})
+  //   })
+  //   .catch(error => this.setState({error: 'Oops! We are unable to display this movie'}))
+  //
+  //   APICalls.fetchMovieVideoData(id)
+  //   .then(data => this.setState({movieTrailer: data.videos}))
+  //   .catch(error => this.setState({error: 'Oops! We are unable to display this trailer'}))
+  // }
 
   displayHomePage = () => {
       this.setState({
@@ -46,12 +46,23 @@ class App extends Component {
         <Route exact path= '/' render= {() => <MoviesArea movies={this.state.movies} displayMovie={this.displayMovie}/> }/>
         <Route exact path= '/:id' render={({match}) => {
           const currentMovie = this.state.movies.find(movie => movie.id === parseInt(match.params.id));
-          this.setState({selectedMovie: currentMovie})
-          return <MovieInfo selectedMovie={currentMovie} movieTrailer={this.state.movieTrailer} displayHomePage={this.displayHomePage}/>
+          return <MovieInfo
+            // const movieId = this.state.movies.find(movie => movie.id === parseInt(match.params.id))
+          />
         }}/>
       </main>
     )
   }
 }
+
+// render() {
+//   return (
+//     <Header>
+//       <Route blah blah blah path=`/` render={Home}/>
+//       <Route blah blah path= />
+//     </Header>
+//   )
+//
+// }
 
 export default App;

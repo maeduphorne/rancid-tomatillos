@@ -7,11 +7,11 @@ const MoviesArea = (props) => {
   const movieCards = props.movies.map(movie => {
     return (
       <Link to={`/${movie.id}`}>
-      <MovieCard
-      key={movie.id}
-      movieObj={movie}
-      displayMovie={props.displayMovie}
-      />
+        <MovieCard
+          key={movie.id}
+          movieObj={movie}
+          displayMovie={props.displayMovie}
+        />
       </Link>
     )
   })
