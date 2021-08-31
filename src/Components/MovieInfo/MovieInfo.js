@@ -1,7 +1,8 @@
 import React from 'react';
 
 const MovieInfo = (props) => {
-  const {selectedMovie, displayHomePage, movieTrailer,} = props;
+  const {selectedMovie, displayHomePage, movieTrailer} = props;
+  console.log('SELECTED', selectedMovie)
     return (
       <section className='movie-info-container' key={selectedMovie.id}>
         <section className="banner">

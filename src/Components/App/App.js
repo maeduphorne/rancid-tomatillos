@@ -29,7 +29,7 @@ class App extends Component {
 
     APICalls.fetchMovieVideoData(id)
     .then(data => this.setState({movieTrailer: data.videos}))
-    .catch(error => this.setState({error: 'Oops! We are unable to dsiplay this trailer'}))
+    .catch(error => this.setState({error: 'Oops! We are unable to display this trailer'}))
   }
 
   displayHomePage = () => {
@@ -43,8 +43,12 @@ class App extends Component {
       <main className='App'>
         <h1>Rancid Tomatillos</h1>
         {this.state.error && <h2>{this.state.error}</h2>}
-        {!this.state.selectedMovie && <MoviesArea movies={this.state.movies} displayMovie={this.displayMovie}/>}
-        {this.state.selectedMovie && <MovieInfo selectedMovie={this.state.selectedMovie.movie} movieTrailer={this.state.movieTrailer} displayHomePage={this.displayHomePage}/>}
+        <Route exact path= '/' render= {() => <MoviesArea movies={this.state.movies} displayMovie={this.displayMovie}/> }/>
+        <Route exact path= '/:id' render={({match}) => {
+          const currentMovie = this.state.movies.find(movie => movie.id === parseInt(match.params.id));
+          this.setState({selectedMovie: currentMovie})
+          return <MovieInfo selectedMovie={currentMovie} movieTrailer={this.state.movieTrailer} displayHomePage={this.displayHomePage}/>
+        }}/>
       </main>
     )
   }
