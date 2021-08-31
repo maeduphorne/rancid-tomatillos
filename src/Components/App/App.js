@@ -22,12 +22,7 @@ class App extends Component {
     .catch(error => this.setState({error: 'Oops! Looks like something went wrong'}))
   }
 
-// Fetch single movie data
-// pass through the movie.id of what is held in selectedMovie state
-
   displayMovie = (id) => {
-    // const clickedMovie =
-    // this.state.movies.find(movie => movie.id === id);
     APICalls.fetchSingleMovieData(id)
     .then(data => this.state.selectedMovie ? this.setState({selectedMovie: ''}) : this.setState({selectedMovie: data}))
     .catch(error => this.setState({error: 'Oops! We are unable to display this movie'}))
@@ -35,8 +30,6 @@ class App extends Component {
     APICalls.fetchMovieVideoData(id)
     .then(data => this.setState({movieTrailer: data.videos}))
     .catch(error => this.setState({error: 'Oops! We are unable to dsiplay this trailer'}))
-    // this.setState({selectedMovie: data})
-    //if the length is 0 then keep empty, if not, set state to the clicked movie
   }
 
   displayHomePage = () => {
@@ -53,10 +46,7 @@ class App extends Component {
         {!this.state.selectedMovie && <MoviesArea movies={this.state.movies} displayMovie={this.displayMovie}/>}
         {this.state.selectedMovie && <MovieInfo selectedMovie={this.state.selectedMovie.movie} movieTrailer={this.state.movieTrailer} displayHomePage={this.displayHomePage}/>}
       </main>
-        // ln 27 if ^  this.state.selectedMovie length is null then return regular movie grid,
-        // ln 28 else ^ return movie info component
     )
-
   }
 }
 
