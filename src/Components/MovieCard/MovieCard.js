@@ -10,9 +10,3 @@ const MovieCard = ({ movieObj, displayMovie }) => {
 }
 
 export default MovieCard
-
-
-
-//IN MOVIE CARD:
-// <h2>{title}</h2>
-// <p>{rating}</p>
