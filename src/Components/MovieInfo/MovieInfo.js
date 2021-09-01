@@ -1,43 +1,107 @@
-import React from 'react';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import APICalls from "../API/APICalls";
 
-const MovieInfo = (props) => {
-  const {selectedMovie, displayHomePage, movieTrailer,} = props;
+class MovieInfo extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedMovie: null,
+      movieTrailer: null,
+    };
+  }
+
+  componentDidMount() {
+    console.log("props", this.props);
+    APICalls.fetchSingleMovieData(this.props.id)
+      .then((data) => this.setState({ selectedMovie: data.movie }))
+      .catch((error) =>
+        this.setState({ error: "Oops! We are unable to display this movie" })
+      );
+
+    APICalls.fetchMovieVideoData(this.props.id)
+      .then((data) => this.setState({ movieTrailer: data.videos }))
+      .catch((error) =>
+        this.setState({ error: "Oops! We are unable to display this trailer" })
+      );
+  }
+
+  render() {
+    if (this.state.selectedMovie === null || undefined) {
+      return <div>Loading</div>;
+    }
+    // deconstruct all of the properties within this.state.selectedMovie
+    const {
+      backdrop_path,
+      title,
+      poster_path,
+      release_date,
+      overview,
+      genres,
+      budget,
+      runtime,
+      tagline,
+      revenue,
+      average_rating,
+      id
+    } = this.state.selectedMovie;
+
     return (
-      <section className='movie-info-container' key={selectedMovie.id}>
-        <section className="banner">
-          <img
-            className="backdrop"
-            src={selectedMovie.backdrop_path}
-            alt={`backdrop for ${selectedMovie.title}`}
-          />
-          <h2 className="title">{selectedMovie.title}</h2>
-        </section>
-        <section className='movie-info'>
-          <section className='info-left'>
-            <div className='poster'>
-              <img src={selectedMovie.poster_path} alt={`movie poster for ${selectedMovie.title}`}/>
-              <p className='tagline'>{selectedMovie.tagline}</p>
-            </div>
+      <div>
+        {this.state.selectedMovie !== null && (
+          <section
+            className="movie-info-container"
+            key={id}
+          >
+            <section className="banner">
+              <img
+                className="backdrop"
+                src={backdrop_path}
+                alt={`backdrop`}
+              />
+              <h2 className="title">{title}</h2>
+            </section>
+            <section className="movie-info">
+              <section className="info-left">
+                <div className="poster">
+                  <img src={poster_path} alt={`movie poster`} />
+                  <p className="tagline">{tagline}</p>
+                </div>
+              </section>
+              <section className="info-right">
+                <div className="right-wrapper">
+                  <p>Overview: {overview}</p>
+                  <p> Release Date: {release_date}</p>
+                  <p>Runtime: {runtime} minutes</p>
+                  <p>
+                    {" "}
+                    Average Rating: {Math.round(average_rating * 100) / 100} /
+                    10
+                  </p>
+                  <p className="genres">Genre: {genres}</p>
+                  <p>Budget: {budget}</p>
+                  <p>Revenue: {revenue}</p>
+                  <Link to={"/"} className="home-btn">
+                    Return Home
+                  </Link>
+                </div>
+              </section>
+            </section>
+            <section className="trailer">
+              {this.state.movieTrailer.length >= 1 && (
+                <iframe
+                  width="560"
+                  height="315"
+                  src={`https://www.youtube.com/embed/${this.state.movieTrailer[0].key}`}
+                  title="YouTube video player"
+                ></iframe>
+              )}
+            </section>
           </section>
-          <section className='info-right'>
-            <div className='right-wrapper'>
-              <p>Overview: {selectedMovie.overview}</p>
-              <p> Release Date: {selectedMovie.release_date}</p>
-              <p>Runtime: {selectedMovie.runtime} minutes</p>
-              <p> Average Rating: {Math.round(selectedMovie.average_rating * 100)/100} / 10</p>
-              <p className='genres'>Genre: {selectedMovie.genres}</p>
-              <p>Budget: {selectedMovie.budget}</p>
-              <p>Revenue: {selectedMovie.revenue}</p>
-              <button onClick={displayHomePage}>Return Home</button>
-            </div>
-          </section>
-        </section>
-        <section className='trailer'>
-          {movieTrailer.length && <iframe width="560" height="315" src={`https://www.youtube.com/embed/${props.movieTrailer[0].key}`} title="YouTube video player">
-          </iframe>}
-        </section>
-      </section>
-    )
-};
+        )}
+      </div>
+    );
+  }
+}
 
-export default MovieInfo
+export default MovieInfo;
