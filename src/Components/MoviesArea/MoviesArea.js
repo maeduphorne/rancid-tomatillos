@@ -10,6 +10,7 @@ const MoviesArea = (props) => {
         <MovieCard
           key={movie.id}
           movieObj={movie}
+          displayMovie={props.displayMovie}
         />
       </Link>
     )
