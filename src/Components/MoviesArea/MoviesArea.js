@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 const MoviesArea = (props) => {
   const movieCards = props.movies.map(movie => {
     return (
+      <li key={movie.id}>
       <Link to={`/${movie.id}`}>
         <MovieCard
           key={movie.id}
@@ -13,6 +14,7 @@ const MoviesArea = (props) => {
           displayMovie={props.displayMovie}
         />
       </Link>
+      </li>
     )
   })
 

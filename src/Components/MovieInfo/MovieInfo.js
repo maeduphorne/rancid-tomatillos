@@ -26,20 +26,6 @@ class MovieInfo extends Component {
       );
   }
 
-  // turn into class Component
-  // displayMovieInfo should take the id from the URL, which we can access using the match object
-  // should call displayMovieInfo on componentDidMount. this fetches the movie data
-
-  // const {selectedMovie, displayHomePage, movieTrailer} = props;
-
-  // const displayGenres = () => {
-  //   return selectedMovie.genres.map(genre => {
-  //     <div>
-  //       {genre}
-  //     </div>
-  //   })
-  // }
-
   render() {
     if (this.state.selectedMovie === null || undefined) {
       return <div>Loading</div>;
@@ -57,6 +43,7 @@ class MovieInfo extends Component {
       tagline,
       revenue,
       average_rating,
+      id
     } = this.state.selectedMovie;
 
     return (
@@ -64,7 +51,7 @@ class MovieInfo extends Component {
         {this.state.selectedMovie !== null && (
           <section
             className="movie-info-container"
-            key={this.state.selectedMovie.id}
+            key={id}
           >
             <section className="banner">
               <img
@@ -108,9 +95,6 @@ class MovieInfo extends Component {
                   src={`https://www.youtube.com/embed/${this.state.movieTrailer[0].key}`}
                   title="YouTube video player"
                 ></iframe>
-              )}
-              {this.state.movieTrailer.length === 0 && (
-                <h3>No movie trailer for selected movie.</h3>
               )}
             </section>
           </section>
