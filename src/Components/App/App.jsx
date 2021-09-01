@@ -44,11 +44,10 @@ class App extends Component {
         <h1>Rancid Tomatillos</h1>
         {this.state.error && <h2>{this.state.error}</h2>}
         <Route exact path= '/' render= {() => <MoviesArea movies={this.state.movies} displayMovie={this.displayMovie}/> }/>
+
         <Route exact path= '/:id' render={({match}) => {
-          const currentMovie = this.state.movies.find(movie => movie.id === parseInt(match.params.id));
-          return <MovieInfo
-            // const movieId = this.state.movies.find(movie => movie.id === parseInt(match.params.id))
-          />
+          const currentId = parseInt(match.params.id);
+          return <MovieInfo id={currentId}/>
         }}/>
       </main>
     )

@@ -17,7 +17,6 @@ const APICalls = {
         .then(response =>response.json())
         .catch(error => console.log(error.message))
     }
-
 }
 
 export default APICalls
