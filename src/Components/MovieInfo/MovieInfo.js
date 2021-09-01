@@ -20,7 +20,7 @@ class MovieInfo extends Component {
       );
 
     APICalls.fetchMovieVideoData(this.props.id)
-      .then((data) => this.setState({ movieTrailer: data.videos }))
+      .then((data) => this.setState({ movieTrailer: data.videos[0].key }))
       .catch((error) =>
         this.setState({ error: "Oops! We are unable to display this trailer" })
       );
@@ -88,11 +88,11 @@ class MovieInfo extends Component {
               </section>
             </section>
             <section className="trailer">
-              {!this.state.movieTrailer === null && (
+              { this.state.movieTrailer !== null && (
                 <iframe
                   width="560"
                   height="315"
-                  src={`https://www.youtube.com/embed/${this.state.movieTrailer[0].key}`}
+                  src={`https://www.youtube.com/embed/${this.state.movieTrailer}`}
                   title="YouTube video player"
                 ></iframe>
               )}
