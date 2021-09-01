@@ -56,7 +56,7 @@ class MovieInfo extends Component {
             <section className="banner">
               <img
                 className="backdrop"
-                src={this.state.selectedMovie.backdrop_path}
+                src={backdrop_path}
                 alt={`backdrop`}
               />
               <h2 className="title">{title}</h2>
