@@ -88,7 +88,7 @@ class MovieInfo extends Component {
               </section>
             </section>
             <section className="trailer">
-              {this.state.movieTrailer.length >= 1 && (
+              {!this.state.movieTrailer === null && (
                 <iframe
                   width="560"
                   height="315"
