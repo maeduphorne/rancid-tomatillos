@@ -94,7 +94,10 @@
   background-color: rgba(0, 0, 0, 0.623);
 }
 
- button {
+ .home-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 11vw;
   height: 2.5vw;
   margin-top: 1.5vw;
@@ -104,9 +107,14 @@
   border: 2px solid white;
   border-radius: 3px;
   color: white;
+  text-decoration: none;
 
   &:hover {
     background-color: rgba(255, 0, 0, 0.392);
     color: white;
   }
+}
+
+li { 
+  list-style-type: none; 
 }
