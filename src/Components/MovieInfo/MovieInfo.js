@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import APICalls from '../API/APICalls';
 
 class MovieInfo extends Component {
@@ -84,6 +85,7 @@ class MovieInfo extends Component {
                     <p className='genres'>Genre: {genres}</p>
                     <p>Budget: {budget}</p>
                     <p>Revenue: {revenue}</p>
+                    <Link to={'/'} className='home-btn'>Return Home</Link>
                   </div>
                 </section>
               </section>

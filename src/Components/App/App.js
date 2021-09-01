@@ -32,11 +32,11 @@ class App extends Component {
   //   .catch(error => this.setState({error: 'Oops! We are unable to display this trailer'}))
   // }
 
-  displayHomePage = () => {
-      this.setState({
-      selectedMovie: ''
-    })
-  }
+  // displayHomePage = () => {
+  //     this.setState({
+  //     selectedMovie: ''
+  //   })
+  // }
 
   render() {
     return (
