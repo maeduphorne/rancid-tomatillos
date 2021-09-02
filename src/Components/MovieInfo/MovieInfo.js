@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import APICalls from "../API/APICalls";
 
 class MovieInfo extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       selectedMovie: null,
       movieTrailer: null,
@@ -12,7 +12,6 @@ class MovieInfo extends Component {
   }
 
   componentDidMount() {
-    console.log("props", this.props);
     APICalls.fetchSingleMovieData(this.props.id)
       .then((data) => this.setState({ selectedMovie: data.movie }))
       .catch((error) =>
@@ -20,24 +19,33 @@ class MovieInfo extends Component {
       );
 
     APICalls.fetchMovieVideoData(this.props.id)
-      .then((data) => this.setState({ movieTrailer: data.videos }))
+      .then((data) => this.setState({ movieTrailer: data.videos[0].key }))
       .catch((error) =>
         this.setState({ error: "Oops! We are unable to display this trailer" })
       );
+  }
+
+   displayGenres() {
+    return this.state.selectedMovie.genres.map(genre => {
+      return (
+        <div className="genre" key={Math.random()}>
+          {genre}
+        </div>
+      )
+    })
   }
 
   render() {
     if (this.state.selectedMovie === null || undefined) {
       return <div>Loading</div>;
     }
-    // deconstruct all of the properties within this.state.selectedMovie
+
     const {
       backdrop_path,
       title,
       poster_path,
       release_date,
       overview,
-      genres,
       budget,
       runtime,
       tagline,
@@ -57,14 +65,14 @@ class MovieInfo extends Component {
               <img
                 className="backdrop"
                 src={backdrop_path}
-                alt={`backdrop`}
+                alt={`backdrop of ${title}`}
               />
               <h2 className="title">{title}</h2>
             </section>
             <section className="movie-info">
               <section className="info-left">
                 <div className="poster">
-                  <img src={poster_path} alt={`movie poster`} />
+                  <img src={poster_path} alt={`movie poster of ${title}`} />
                   <p className="tagline">{tagline}</p>
                 </div>
               </section>
@@ -78,9 +86,14 @@ class MovieInfo extends Component {
                     Average Rating: {Math.round(average_rating * 100) / 100} /
                     10
                   </p>
-                  <p className="genres">Genre: {genres}</p>
-                  <p>Budget: {budget}</p>
-                  <p>Revenue: {revenue}</p>
+                  <div className="genre-section">
+                    Genre:
+                    <div className="genre-tags">
+                    {this.displayGenres()}
+                    </div>
+                  </div>
+                  {budget !== 0 && <p>Budget: {`$${Intl.NumberFormat('en-US').format(budget)}`}</p>}
+                  {revenue !== 0 && <p>Revenue: {`$${Intl.NumberFormat('en-US').format(revenue)}`}</p>}
                   <Link to={"/"} className="home-btn">
                     Return Home
                   </Link>
@@ -88,11 +101,11 @@ class MovieInfo extends Component {
               </section>
             </section>
             <section className="trailer">
-              {this.state.movieTrailer.length >= 1 && (
+              { this.state.movieTrailer !== null && (
                 <iframe
                   width="560"
                   height="315"
-                  src={`https://www.youtube.com/embed/${this.state.movieTrailer[0].key}`}
+                  src={`https://www.youtube.com/embed/${this.state.movieTrailer}`}
                   title="YouTube video player"
                 ></iframe>
               )}
