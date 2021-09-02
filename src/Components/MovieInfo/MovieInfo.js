@@ -26,6 +26,14 @@ class MovieInfo extends Component {
       );
   }
 
+  //  displayGenres() {
+  //   return this.selectedMovie.genres.map(genre => {
+  //     <div>
+  //       {genre}
+  //     </div>
+  //   })
+  // }
+
   render() {
     if (this.state.selectedMovie === null || undefined) {
       return <div>Loading</div>;
@@ -79,8 +87,8 @@ class MovieInfo extends Component {
                     10
                   </p>
                   <p className="genres">Genre: {genres}</p>
-                  <p>Budget: {budget}</p>
-                  <p>Revenue: {revenue}</p>
+                  {budget !== 0 && <p>Budget: {`$${Intl.NumberFormat('en-US').format(budget)}`}</p>}
+                  {revenue !== 0 && <p>Revenue: {`$${Intl.NumberFormat('en-US').format(revenue)}`}</p>}
                   <Link to={"/"} className="home-btn">
                     Return Home
                   </Link>
