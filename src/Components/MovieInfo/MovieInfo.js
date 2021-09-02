@@ -37,7 +37,7 @@ class MovieInfo extends Component {
 
   render() {
     if (this.state.selectedMovie === null || undefined) {
-      return <div>Loading</div>;
+      return <div className="loading">Loading</div>;
     }
 
     const {
