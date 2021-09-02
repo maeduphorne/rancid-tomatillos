@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import APICalls from "../API/APICalls";
 
 class MovieInfo extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       selectedMovie: null,
       movieTrailer: null,
@@ -26,13 +26,15 @@ class MovieInfo extends Component {
       );
   }
 
-  //  displayGenres() {
-  //   return this.selectedMovie.genres.map(genre => {
-  //     <div>
-  //       {genre}
-  //     </div>
-  //   })
-  // }
+   displayGenres() {
+    return this.state.selectedMovie.genres.map(genre => {
+      return (
+        <div className="genre" key={Math.random()}>
+          {genre}
+        </div>
+      )
+    })
+  }
 
   render() {
     if (this.state.selectedMovie === null || undefined) {
@@ -86,7 +88,7 @@ class MovieInfo extends Component {
                     Average Rating: {Math.round(average_rating * 100) / 100} /
                     10
                   </p>
-                  <p className="genres">Genre: {genres}</p>
+                  <div className="genres">Genre: {this.displayGenres()}</div>
                   {budget !== 0 && <p>Budget: {`$${Intl.NumberFormat('en-US').format(budget)}`}</p>}
                   {revenue !== 0 && <p>Revenue: {`$${Intl.NumberFormat('en-US').format(revenue)}`}</p>}
                   <Link to={"/"} className="home-btn">
