@@ -94,9 +94,25 @@
   background-color: rgba(0, 0, 0, 0.623);
 }
 
-  .genres, .genre{
-    color: white;
+  .genre-section {
     font-size: 1.3vw;
+  }
+
+  .genre-tags {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .genre {
+    background-color: rgba(255, 0, 0, 0.392);
+    font-size: 1.3vw;
+    margin: 2.5%;
+    border-radius: 3px;
+    width: 10vw;
+    height: 2.5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
  .home-btn {

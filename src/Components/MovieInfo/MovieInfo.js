@@ -12,7 +12,6 @@ class MovieInfo extends Component {
   }
 
   componentDidMount() {
-    console.log("props", this.props);
     APICalls.fetchSingleMovieData(this.props.id)
       .then((data) => this.setState({ selectedMovie: data.movie }))
       .catch((error) =>
@@ -40,14 +39,13 @@ class MovieInfo extends Component {
     if (this.state.selectedMovie === null || undefined) {
       return <div>Loading</div>;
     }
-    // deconstruct all of the properties within this.state.selectedMovie
+
     const {
       backdrop_path,
       title,
       poster_path,
       release_date,
       overview,
-      genres,
       budget,
       runtime,
       tagline,
@@ -67,14 +65,14 @@ class MovieInfo extends Component {
               <img
                 className="backdrop"
                 src={backdrop_path}
-                alt={`backdrop`}
+                alt={`backdrop of ${title}`}
               />
               <h2 className="title">{title}</h2>
             </section>
             <section className="movie-info">
               <section className="info-left">
                 <div className="poster">
-                  <img src={poster_path} alt={`movie poster`} />
+                  <img src={poster_path} alt={`movie poster of ${title}`} />
                   <p className="tagline">{tagline}</p>
                 </div>
               </section>
@@ -88,7 +86,12 @@ class MovieInfo extends Component {
                     Average Rating: {Math.round(average_rating * 100) / 100} /
                     10
                   </p>
-                  <div className="genres">Genre: {this.displayGenres()}</div>
+                  <div className="genre-section">
+                    Genre:
+                    <div className="genre-tags">
+                    {this.displayGenres()}
+                    </div>
+                  </div>
                   {budget !== 0 && <p>Budget: {`$${Intl.NumberFormat('en-US').format(budget)}`}</p>}
                   {revenue !== 0 && <p>Revenue: {`$${Intl.NumberFormat('en-US').format(revenue)}`}</p>}
                   <Link to={"/"} className="home-btn">
