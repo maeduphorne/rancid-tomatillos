@@ -10,11 +10,11 @@ describe('User Movie Area Flows', () => {
   });
 
   it('Should be able display all movies in dataset in the movie area with movie posters', () => {
-    cy.get('div[class="movie-card"]').find("img").should('be.visible').should('have.length', 40)
+    cy.get('.movie-card').find("img").should('be.visible').should('have.length', 40)
   });
 
     it('Should be able to click first movie card, should update url to matching path and display details', () => {
-        cy.get('div[class="movie-card"]')
+        cy.get('.movie-card')
             .first().click()
             cy.loadSingleMovieInfo()
             .url().should('eq', 'http://localhost:3000/694919')
