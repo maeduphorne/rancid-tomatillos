@@ -14,6 +14,13 @@ class Search extends Component {
     this.setState({input: e.target.value})
   }
 
+  // when an event happens
+  // within the search component filter through this.state.movies (passed as props)
+  // using this.state.input as an argument in the conditional
+  // eliminate MoviesArea display and replace with a new search display that renders filtered movies
+
+
+
   render() {
     return (
       <form action="/" method="get">

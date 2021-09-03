@@ -21,23 +21,9 @@ class App extends Component {
     .catch(error => this.setState({error: 'Oops! Looks like something went wrong'}))
   }
 
-  // displayMovie = (id) => {
-  //   APICalls.fetchSingleMovieData(id).then(data => {
-  //     return
-  //       this.state.selectedMovie ? this.setState({selectedMovie: ''}) : this.setState({selectedMovie: data.movie})
-  //   })
-  //   .catch(error => this.setState({error: 'Oops! We are unable to display this movie'}))
-  //
-  //   APICalls.fetchMovieVideoData(id)
-  //   .then(data => this.setState({movieTrailer: data.videos}))
-  //   .catch(error => this.setState({error: 'Oops! We are unable to display this trailer'}))
-  // }
-
-  // displayHomePage = () => {
-  //     this.setState({
-  //     selectedMovie: ''
-  //   })
-  // }
+//make 2 methods:
+  // filter this.state.movies using the search input state
+    // send 
 
   render() {
     return (
@@ -56,14 +42,5 @@ class App extends Component {
   }
 }
 
-// render() {
-//   return (
-//     <Header>
-//       <Route blah blah blah path=`/` render={Home}/>
-//       <Route blah blah path= />
-//     </Header>
-//   )
-//
-// }
 
 export default App;
