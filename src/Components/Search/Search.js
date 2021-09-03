@@ -10,6 +10,9 @@ class Search extends Component {
   }
 
   //create a method to grab the input
+  handleInput = e => {
+    this.setState({input: e.target.value})
+  }
 
   render() {
     return (
@@ -20,6 +23,7 @@ class Search extends Component {
       placeholder="Search movies"
       name="search"
       value={this.state.input}
+      onInput={e => this.handleInput(e)}
       />
       <button type="submit">Search</button>
       </form>)
