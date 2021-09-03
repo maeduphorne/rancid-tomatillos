@@ -44,7 +44,7 @@ class App extends Component {
       <main className='App'>
         <h1>Rancid Tomatillos</h1>
         {this.state.error && <h2>{this.state.error}</h2>}
-        <Search/>
+        <Search movies={this.state.movies}/>
         <Route exact path= '/' render= {() => <MoviesArea movies={this.state.movies} displayMovie={this.displayMovie}/> }/>
 
         <Route exact path= '/:id' render={({match}) => {
