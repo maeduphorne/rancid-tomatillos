@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 import MoviesArea from '../MoviesArea/MoviesArea'
 import MovieInfo from '../MovieInfo/MovieInfo'
 import APICalls from '../API/APICalls';
+import Search from '../Search/Search'
 import './App.css';
 
 class App extends Component {
