@@ -11,7 +11,8 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      error: ''
+      error: '',
+      searchInput: ''
     }
   }
 
@@ -23,16 +24,18 @@ class App extends Component {
 
 //make 2 methods:
   // filter this.state.movies using the search input state
-    // send 
+    // send
+  setSearchInput = (e) => {
+    this.setState({searchInput: e.target.value})
+  }
 
   render() {
     return (
       <main className='App'>
         <h1>Rancid Tomatillos</h1>
         {this.state.error && <h2>{this.state.error}</h2>}
-        <Search movies={this.state.movies}/>
+        <Search setSearchInput={this.setSearchInput}/>
         <Route exact path= '/' render= {() => <MoviesArea movies={this.state.movies} displayMovie={this.displayMovie}/> }/>
-
         <Route exact path= '/:id' render={({match}) => {
           const currentId = parseInt(match.params.id);
           return <MovieInfo id={currentId}/>

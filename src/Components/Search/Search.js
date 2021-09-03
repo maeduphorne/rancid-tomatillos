@@ -11,6 +11,7 @@ class Search extends Component {
 
   //create a method to grab the input
   handleInput = e => {
+    this.props.setSearchInput(e)
     this.setState({input: e.target.value})
   }
 
