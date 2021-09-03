@@ -22,11 +22,13 @@ class App extends Component {
     .catch(error => this.setState({error: 'Oops! Looks like something went wrong'}))
   }
 
-//make 2 methods:
-  // filter this.state.movies using the search input state
-    // send
   setSearchInput = (e) => {
     this.setState({searchInput: e.target.value})
+  }
+
+  filterMovies = () => {
+    const filteredMovies = this.state.movies.filter(movie => movie.title.includes(this.state.searchInput))
+    this.setState({movies: filteredMovies})
   }
 
   render() {
@@ -34,7 +36,7 @@ class App extends Component {
       <main className='App'>
         <h1>Rancid Tomatillos</h1>
         {this.state.error && <h2>{this.state.error}</h2>}
-        <Search setSearchInput={this.setSearchInput}/>
+        <Search setSearchInput={this.setSearchInput} filterMovies={this.filterMovies}/>
         <Route exact path= '/' render= {() => <MoviesArea movies={this.state.movies} displayMovie={this.displayMovie}/> }/>
         <Route exact path= '/:id' render={({match}) => {
           const currentId = parseInt(match.params.id);

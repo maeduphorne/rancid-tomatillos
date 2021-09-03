@@ -13,6 +13,7 @@ class Search extends Component {
   handleInput = e => {
     this.props.setSearchInput(e)
     this.setState({input: e.target.value})
+    this.props.filterMovies()
   }
 
   // when an event happens
@@ -25,15 +26,15 @@ class Search extends Component {
   render() {
     return (
       <form action="/" method="get">
-      <input
-      type="text"
-      className="search-bar"
-      placeholder="Search movies"
-      name="search"
-      value={this.state.input}
-      onInput={e => this.handleInput(e)}
-      />
-      <button type="submit">Search</button>
+        <input
+          type="text"
+          className="search-bar"
+          placeholder="Search movies"
+          name="search"
+          value={this.state.input}
+          onInput={e => this.handleInput(e)}
+        />
+        <button type="submit">Search</button>
       </form>)
     }
 }
