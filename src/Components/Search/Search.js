@@ -32,7 +32,7 @@ class Search extends Component {
           placeholder="Search movies"
           name="search"
           value={this.state.input}
-          onInput={e => this.handleInput(e)}
+          onChange={e => this.handleInput(e)}
         />
         <button type="submit">Search</button>
       </form>)
