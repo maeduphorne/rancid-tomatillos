@@ -16,6 +16,10 @@ class Search extends Component {
     this.props.filterMovies()
   }
 
+  handleClear = () => {
+    this.setState({input: ''})
+  };
+
   // when an event happens
   // within the search component filter through this.state.movies (passed as props)
   // using this.state.input as an argument in the conditional
@@ -34,7 +38,8 @@ class Search extends Component {
           value={this.state.input}
           onChange={e => this.handleInput(e)}
         />
-        <button type="submit">Search</button>
+        <button className="search-btn" type="submit">Search</button>
+        <button className="clear-btn" type="submit" onClick={this.handleClear}>Clear</button>
       </form>)
     }
 }
