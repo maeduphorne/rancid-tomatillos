@@ -45,9 +45,11 @@ class App extends Component {
   render() {
     return (
       <main className="App">
-        <h1>Rancid Tomatillos</h1>
-        {this.state.error && <h2>{this.state.error}</h2>}
+        <header>
+        <h1 className="title">Rancid Tomatillos</h1>
         {this.state.movies ? (<Search filterMovies={this.filterMovies} />) : null}
+        </header>
+        {this.state.error && <h2>{this.state.error}</h2>}
         {this.state.movies && this.state.searchResult && (
           <Route exact path="/" render={() => (
               <MoviesArea movies={this.state.searchResult} displayMovie={this.displayMovie} />

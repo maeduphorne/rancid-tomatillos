@@ -1,0 +1,14 @@
+.search-bar {
+  height: 3vh;
+  width: 30vw;
+}
+
+.search-btn {
+    height: 100%;
+  width: 30%;
+}
+
+.display-all {
+    height: 100%;
+  width: 30%;
+}
