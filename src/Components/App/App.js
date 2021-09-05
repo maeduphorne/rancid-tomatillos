@@ -1,67 +1,75 @@
-import React, { Component } from 'react';
-import { Route } from 'react-router-dom'
-import MoviesArea from '../MoviesArea/MoviesArea'
-import MovieInfo from '../MovieInfo/MovieInfo'
-import APICalls from '../API/APICalls';
-import './App.css';
+import React, { Component } from "react";
+import { Route } from "react-router-dom";
+import MoviesArea from "../MoviesArea/MoviesArea";
+import MovieInfo from "../MovieInfo/MovieInfo";
+import APICalls from "../API/APICalls";
+import Search from "../Search/Search";
+import "./App.css";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       movies: [],
-      error: ''
-    }
+      error: "",
+      searchInput: "",
+      searchResult: [],
+    };
   }
 
   componentDidMount = () => {
     APICalls.fetchMoviesData()
-    .then(data => this.setState({movies:[ ...this.state.movies,...data.movies]}))
-    .catch(error => this.setState({error: 'Oops! Looks like something went wrong'}))
+      .then((data) =>
+        this.setState({ movies: [...this.state.movies, ...data.movies] })
+      )
+      .catch((error) =>
+        this.setState({ error: "Oops! Looks like something went wrong" })
+      );
+  };
+
+  setMovies = (searchResult) => {
+    if (!searchResult.length) {
+      this.setState({error: 'Looks like we don\'t have that movie title - try searching another title.'})
+    } else {
+      this.setState({searchResult, error: ''})
+    }
   }
 
-  // displayMovie = (id) => {
-  //   APICalls.fetchSingleMovieData(id).then(data => {
-  //     return
-  //       this.state.selectedMovie ? this.setState({selectedMovie: ''}) : this.setState({selectedMovie: data.movie})
-  //   })
-  //   .catch(error => this.setState({error: 'Oops! We are unable to display this movie'}))
-  //
-  //   APICalls.fetchMovieVideoData(id)
-  //   .then(data => this.setState({movieTrailer: data.videos}))
-  //   .catch(error => this.setState({error: 'Oops! We are unable to display this trailer'}))
-  // }
-
-  // displayHomePage = () => {
-  //     this.setState({
-  //     selectedMovie: ''
-  //   })
-  // }
+  filterMovies = (value) => {
+    this.setState({ searchInput: value });
+    const filteredMovies = this.state.movies.filter((movie) => movie.title.toLowerCase().includes(this.state.searchInput.toLowerCase()))
+    this.setState({ searchResult: filteredMovies })
+    this.setMovies(filteredMovies)
+  };
 
   render() {
     return (
-      <main className='App'>
-        <h1>Rancid Tomatillos</h1>
+      <main className="App">
+        <header>
+        <h1 className="title">Rancid Tomatillos</h1>
+        {this.state.movies ? (<Search filterMovies={this.filterMovies} />) : null}
+        </header>
         {this.state.error && <h2>{this.state.error}</h2>}
-        <Route exact path= '/' render= {() => <MoviesArea movies={this.state.movies} displayMovie={this.displayMovie}/> }/>
-
-        <Route exact path= '/:id' render={({match}) => {
-          const currentId = parseInt(match.params.id);
-          return <MovieInfo id={currentId}/>
-        }}/>
+        {this.state.movies && this.state.searchResult && (
+          <Route exact path="/" render={() => (
+              <MoviesArea movies={this.state.searchResult} displayMovie={this.displayMovie} />
+            )}
+          />
+        )}
+        {!this.state.error && !this.state.searchResult.length && (
+          <Route exact path="/" render={() => (
+              <MoviesArea movies={this.state.movies} displayMovie={this.displayMovie} />
+            )}
+          />
+        )}
+          <Route exact path="/:id" render={({ match }) => {
+            const currentId = parseInt(match.params.id);
+            return <MovieInfo id={currentId} />}
+          }
+          />
       </main>
-    )
+    );
   }
 }
-
-// render() {
-//   return (
-//     <Header>
-//       <Route blah blah blah path=`/` render={Home}/>
-//       <Route blah blah path= />
-//     </Header>
-//   )
-//
-// }
 
 export default App;
