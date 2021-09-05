@@ -27,8 +27,9 @@ class App extends Component {
       );
   };
 
-  setSearchInput = (e) => {
-    this.setState({ searchInput: e.target.value });
+  setSearchInput = (value) => {
+    this.setState({ searchInput: value });
+    console.log(this.state.searchInput)
   };
 
   setMovies = (searchResult) => {
@@ -36,6 +37,7 @@ class App extends Component {
       this.setState({error: 'Looks like we don\'t have that movie title - try searching another title.'})
     } else {
       this.setState({searchResult, error: ''})
+      console.log(this.state.searchResult)
     }
   }
 
@@ -43,6 +45,8 @@ class App extends Component {
     const filteredMovies = this.state.movies.filter((movie) => movie.title.toLowerCase().includes(this.state.searchInput.toLowerCase()))
     this.setState({ searchResult: filteredMovies })
     this.setMovies(filteredMovies)
+    console.log(filteredMovies)
+    console.log(this.state.searchResult)
   };
 
   render() {
@@ -50,9 +54,7 @@ class App extends Component {
       <main className="App">
         <h1>Rancid Tomatillos</h1>
         {this.state.error && <h2>{this.state.error}</h2>}
-
         {this.state.movies ? (<Search setSearchInput={this.setSearchInput} filterMovies={this.filterMovies} />) : null}
-        {this.state.movies && !this.state.searchResult.length && (<h2>{this.state.error}</h2>)}
         {this.state.movies && this.state.searchResult && (
           <Route exact path="/" render={() => (
               <MoviesArea movies={this.state.searchResult} displayMovie={this.displayMovie} />

@@ -10,10 +10,11 @@ class Search extends Component {
   }
 
   //create a method to grab the input
-  handleInput = e => {
-    e.preventDefault();
-    this.props.setSearchInput(e)
-    this.setState({input: e.target.value})
+  handleInput = async function(event) {
+    //Since setState() function in asynchronous, we need to use await and async to make sure we are
+    // grabbing most recent typed input. 
+    await this.setState({input: event.target.value})
+    this.props.setSearchInput(event.target.value)
     this.props.filterMovies()
   }
 
@@ -34,7 +35,7 @@ class Search extends Component {
         <input
           type="text"
           className="search-bar"
-          placeholder="Search movies"
+          placeholder="Start Typing to Search"
           name="search"
           value={this.state.input}
           onChange={e => this.handleInput(e)}
