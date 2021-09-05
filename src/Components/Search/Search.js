@@ -11,6 +11,7 @@ class Search extends Component {
 
   //create a method to grab the input
   handleInput = e => {
+    e.preventDefault();
     this.props.setSearchInput(e)
     this.setState({input: e.target.value})
     this.props.filterMovies()
@@ -38,8 +39,8 @@ class Search extends Component {
           value={this.state.input}
           onChange={e => this.handleInput(e)}
         />
-        <button className="search-btn" type="submit">Search</button>
-        <button className="clear-btn" type="submit" onClick={this.handleClear}>Clear</button>
+        <button className="search-btn" type="submit" onClick={this.handleInput}>Search</button>
+        <button className="display-all" type="submit" onClick={this.handleClear}>Display All</button>
       </form>)
     }
 }
