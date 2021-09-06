@@ -23,6 +23,7 @@ When visiting the application, a user is able to click a movie's poster to view 
   - Router
   - CSS/Sass
   - Cypress
+  - ESLint
 
 ## Contributors
   - [Mae Duphorne](https://github.com/maeduphorne)
@@ -41,13 +42,13 @@ Visit our published [Rancid Tomatillos]()
   - Self-teaching efficiently with new concepts
   - Thorough testing using Cypress
   - Using data down, actions up principles to enact a search feature
+  - Close attention to User Experience - reflected in the routing and multiple ways to easily return to the main page
 
 ## Challenges & Improvements
   - Deciding whether components should be functional or class components
   - Troubleshooting async issues
   - Possible future improvements:
     - Allow a user to search for movies by genre or rating
-    - Incorporating Day.js to reformat a date from the API
     - Build our own backend using Express.js
 
 ## Set Up
