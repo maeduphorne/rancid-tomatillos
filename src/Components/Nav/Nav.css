@@ -1,24 +1,23 @@
 .title {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 20vh;
-    width: 100%;
-    background-color: #5e0000;
-    color: white;
-    margin-bottom: 15px;
-    font-family: 'Allan';
-    font-size: 80px;
-    text-decoration: none;
-    font-weight: 700;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 20vh;
+  width: 100%;
+  background-color: #5e0000;
+  color: white;
+  margin-bottom: 15px;
+  font-family: 'Allan';
+  font-size: 80px;
+  text-decoration: none;
+  font-weight: 700;
 }
 
 .tomato-logo {
   height: 11vh;
   padding: 3vh;
 }
-
 
 @media screen and (max-width: 1024px) {
   .title {
@@ -27,8 +26,8 @@
   }
 
   .tomato-logo {
-  height: 8vh;
-}
+    height: 8vh;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -37,8 +36,8 @@
     font-size: 40px;
   }
   .tomato-logo {
-  height: 6vh;
-}
+    height: 6vh;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -48,7 +47,7 @@
     margin-bottom: 15px;
     width: 100%;
   }
-    .tomato-logo {
-  height: 4vh;
-}
+  .tomato-logo {
+    height: 4vh;
+  }
 }

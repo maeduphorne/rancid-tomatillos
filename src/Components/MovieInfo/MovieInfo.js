@@ -1,33 +1,33 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import APICalls from "../API/APICalls";
-import * as dayjs from 'dayjs';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import APICalls from '../API/APICalls'
+import * as dayjs from 'dayjs'
 
 class MovieInfo extends Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
     this.state = {
       selectedMovie: null,
-      movieTrailer: null,
-    };
+      movieTrailer: null
+    }
   }
 
-  componentDidMount() {
+  componentDidMount () {
     APICalls.fetchSingleMovieData(this.props.id)
       .then((data) => this.setState({ selectedMovie: data.movie }))
       .then(this.props.updateMovieSelection(true))
       .catch((error) =>
-        this.setState({ error: "Oops! We are unable to display this movie" })
-      );
+        this.setState({ error: 'Oops! We are unable to display this movie' })
+      )
 
     APICalls.fetchMovieVideoData(this.props.id)
       .then((data) => this.setState({ movieTrailer: data.videos[0].key }))
       .catch((error) =>
-        this.setState({ error: "Oops! We are unable to display this trailer" })
-      );
+        this.setState({ error: 'Oops! We are unable to display this trailer' })
+      )
   }
 
-   displayGenres() {
+  displayGenres () {
     return this.state.selectedMovie.genres.map(genre => {
       return (
         <div className="genre" key={Math.random()}>
@@ -37,9 +37,9 @@ class MovieInfo extends Component {
     })
   }
 
-  render() {
+  render () {
     if (this.state.selectedMovie === null || undefined) {
-      return <div className="loading">Loading</div>;
+      return <div className="loading">Loading</div>
     }
 
     const {
@@ -54,7 +54,7 @@ class MovieInfo extends Component {
       revenue,
       average_rating,
       id
-    } = this.state.selectedMovie;
+    } = this.state.selectedMovie
 
     return (
       <div>
@@ -84,7 +84,7 @@ class MovieInfo extends Component {
                   <p> Release Date: {dayjs(release_date).format('MMMM D, YYYY')}</p>
                   <p>Runtime: {runtime} minutes</p>
                   <p>
-                    {" "}
+                    {' '}
                     Average Rating: {Math.round(average_rating * 100) / 100} /
                     10
                   </p>
@@ -96,7 +96,7 @@ class MovieInfo extends Component {
                   </div>
                   {budget !== 0 && <p>Budget: {`$${Intl.NumberFormat('en-US').format(budget)}`}</p>}
                   {revenue !== 0 && <p>Revenue: {`$${Intl.NumberFormat('en-US').format(revenue)}`}</p>}
-                  <Link to={"/"} className="home-btn" onClick={() => this.props.updateMovieSelection(false)}>
+                  <Link to={'/'} className="home-btn" onClick={() => this.props.updateMovieSelection(false)}>
                     Return Home
                   </Link>
                 </div>
@@ -107,20 +107,20 @@ class MovieInfo extends Component {
                 <iframe
                   width="560"
                   height="315"
-                  frameborder="0"
+                  frameBorder="0"
                   gesture="media"
                   allow="encrypted-media"
                   src={`https://www.youtube.com/embed/${this.state.movieTrailer}`}
                   title="YouTube video player"
-                  allowfullscreen
+                  allowFullScreen
                 ></iframe>
               )}
             </section>
           </section>
         )}
       </div>
-    );
+    )
   }
 }
 
-export default MovieInfo;
+export default MovieInfo

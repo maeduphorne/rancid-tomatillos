@@ -1,7 +1,6 @@
-import React from 'react';
-import MovieCard from '../MovieCard/MovieCard';
-import './MoviesArea.css';
-
+import React from 'react'
+import MovieCard from '../MovieCard/MovieCard'
+import './MoviesArea.css'
 
 const MoviesArea = (props) => {
   const movieCards = props.movies.map(movie => {
@@ -19,6 +18,6 @@ const MoviesArea = (props) => {
       {movieCards}
     </div>
   )
-};
+}
 
 export default MoviesArea
