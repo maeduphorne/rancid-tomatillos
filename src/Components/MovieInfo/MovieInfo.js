@@ -100,8 +100,7 @@ class MovieInfo extends Component {
                   </Link>
                 </div>
               </section>
-            </section>
-            <section className="trailer">
+              <section className="trailer">
               { this.state.movieTrailer !== null && (
                 <iframe
                   width="560"
@@ -109,7 +108,8 @@ class MovieInfo extends Component {
                   src={`https://www.youtube.com/embed/${this.state.movieTrailer}`}
                   title="YouTube video player"
                 ></iframe>
-              )}
+                )}
+              </section>
             </section>
           </section>
         )}
