@@ -4,10 +4,10 @@
   - [Introduction](##Introduction)
   - [Technologies](##Technologies)
   - [Contributors](##Contributors)
-  - [Features](##Features)
   - [Illustrations](##Illustrations)
   - [Deployed Page](##Deployed-Page)
-  - [Possible Future Extensions](##Possible-Future-Extensions)
+  - [Wins](##Wins)
+  - [Challenges & Improvements](##Challenges-&-Improvements)
   - [Set Up](##Set-Up)
   - [Sources](##Sources)
   - [Project Specs](##Project-Specs)
@@ -28,10 +28,6 @@ When visiting the application, a user is able to click a movie's poster to view 
   - [Mae Duphorne](https://github.com/maeduphorne)
   - [Darla Evans](https://github.com/darlaevans2000)
 
-## Features
-
-  
-
 ## Illustrations
 
 
@@ -40,17 +36,19 @@ When visiting the application, a user is able to click a movie's poster to view 
 
 Visit our published [Rancid Tomatillos]()
 
-## Possible Future Extensions
+## Wins
 
-- Allow a user to search for movies by genre or rating
-- Build our own backend using Express.js
+## Challenges & Improvements
+
+- Possible future improvements:
+  - Allow a user to search for movies by genre or rating
+  - Build our own backend using Express.js
 
 ## Set Up
 
 1. Fork this repo  
 2. Clone the repo to your local machine
 3. View the project in the browser by running open index.html in your terminal
-
 
 ## Sources
   - [MDN](http://developer.mozilla.org/en-US/)
