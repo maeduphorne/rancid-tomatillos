@@ -15,6 +15,7 @@ class App extends Component {
       error: "",
       searchInput: "",
       searchResult: [],
+      isMovieSelected: false,
     };
   }
 
@@ -27,6 +28,10 @@ class App extends Component {
         this.setState({ error: "Oops! Looks like something went wrong" })
       );
   };
+
+  updateMovieSelection = (state) => {
+    this.setState({isMovieSelected: state})
+  }
 
   setMovies = (searchResult) => {
     if (!searchResult.length) {
@@ -48,7 +53,7 @@ class App extends Component {
       <main className="App">
         <Nav/>
         {this.state.error && <h2>{this.state.error}</h2>}
-        {this.state.movies ? (<Search filterMovies={this.filterMovies} />) : null}
+        {this.state.movies && !this.state.isMovieSelected ? (<Search filterMovies={this.filterMovies} />) : null}
         {this.state.movies && this.state.searchResult && (
           <Route exact path="/" render={() => (
               <MoviesArea movies={this.state.searchResult} displayMovie={this.displayMovie} />
@@ -63,7 +68,7 @@ class App extends Component {
         )}
           <Route exact path="/:id" render={({ match }) => {
             const currentId = parseInt(match.params.id);
-            return <MovieInfo id={currentId} />}
+            return <MovieInfo id={currentId} updateMovieSelection={this.updateMovieSelection}/>}
           }
           />
       </main>
