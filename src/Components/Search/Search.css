@@ -15,13 +15,19 @@ form{
   width: 30%;
   outline: none;
   padding: 5px;
+  font-family: 'Roboto', sans-serif;
+  border: solid #5e0000 2px;
 }
+
 .search-btn, .display-all{
   background-color: black;
   color: white;
-  font-family: 'Allan';
+  font-family: 'Roboto';
+  font-weight: 700;
   outline: none;
+  border: solid white 1px;
 }
+
 .search-btn {
   margin-right: 5%;
   margin-left: 5%;
