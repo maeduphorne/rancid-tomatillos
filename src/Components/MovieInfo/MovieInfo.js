@@ -118,8 +118,7 @@ class MovieInfo extends Component {
                     width="560"
                     height="315"
                     frameBorder="0"
-                    gesture="media"
-                    allow="encrypted-media"
+                    allow="autoplay"
                     src={`https://www.youtube.com/embed/${this.state.movieTrailer}`}
                     title="YouTube video player"
                     allowFullScreen
