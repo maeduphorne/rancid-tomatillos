@@ -1,11 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Nav.css";
 
-const Nav = () => {
+const Nav = ({updateMovieSelection}) => {
 
   return (
     <header>
-      <h1 className="title">Rancid Tomatillos</h1>
+      <Link to={"/"} className="title" onClick={() => updateMovieSelection(false)}>
+      Rancid Tomatillos
+      </Link>
     </header>)
 
 }

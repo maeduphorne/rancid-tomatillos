@@ -68,7 +68,7 @@ class MovieInfo extends Component {
                 src={backdrop_path}
                 alt={`backdrop of ${title}`}
               />
-              <h2 className="title">{title}</h2>
+              <h2 className="movie-title">{title}</h2>
             </section>
             <section className="movie-info">
               <section className="info-left">

@@ -51,7 +51,7 @@ class App extends Component {
   render() {
     return (
       <main className="App">
-        <Nav/>
+        <Nav updateMovieSelection={this.updateMovieSelection}/>
         {this.state.error && <h2>{this.state.error}</h2>}
         {this.state.movies && !this.state.isMovieSelected ? (<Search filterMovies={this.filterMovies} />) : null}
         {this.state.movies && this.state.searchResult && (
