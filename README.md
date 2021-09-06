@@ -1,7 +1,7 @@
 # Rancid Tomatillos
 
 ## Table of Contents
-  - [Introduction](##Introduction)
+  - [Introduction](#Introduction)
   - [Technologies](##Technologies)
   - [Contributors](##Contributors)
   - [Illustrations](##Illustrations)
@@ -48,7 +48,7 @@ Visit our published [Rancid Tomatillos]()
 
 1. Fork this repo  
 2. Clone the repo to your local machine
-3. View the project in the browser by running open index.html in your terminal
+3. View the project in the browser by running open localhost:3000 in your terminal
 
 ## Sources
   - [MDN](http://developer.mozilla.org/en-US/)
