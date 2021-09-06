@@ -1,0 +1,36 @@
+header {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 20%;
+    width: 100%;
+    background-color: #5e0000;
+    color: white;
+    margin-bottom: 15px;
+    font-size: 30px;
+}
+
+@media screen and (max-width: 768px) {
+
+  .title {
+    width: 57%;
+    margin-left: 10%
+  }
+
+}
+
+@media screen and (max-width: 1024px) {
+  header {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+    header {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        width: 100%;
+    }
+}

@@ -4,6 +4,7 @@ import MoviesArea from "../MoviesArea/MoviesArea";
 import MovieInfo from "../MovieInfo/MovieInfo";
 import APICalls from "../API/APICalls";
 import Search from "../Search/Search";
+import Nav from "../Nav/Nav"
 import "./App.css";
 
 class App extends Component {
@@ -29,7 +30,7 @@ class App extends Component {
 
   setMovies = (searchResult) => {
     if (!searchResult.length) {
-      this.setState({error: 'Looks like we don\'t have that movie title - try searching another title.'})
+      this.setState({error: 'Uh oh! We can\'t find the title you\'re looking for - please try searching another title.'})
     } else {
       this.setState({searchResult, error: ''})
     }
@@ -45,11 +46,9 @@ class App extends Component {
   render() {
     return (
       <main className="App">
-        <header>
-        <h1 className="title">Rancid Tomatillos</h1>
-        {this.state.movies ? (<Search filterMovies={this.filterMovies} />) : null}
-        </header>
+        <Nav/>
         {this.state.error && <h2>{this.state.error}</h2>}
+        {this.state.movies ? (<Search filterMovies={this.filterMovies} />) : null}
         {this.state.movies && this.state.searchResult && (
           <Route exact path="/" render={() => (
               <MoviesArea movies={this.state.searchResult} displayMovie={this.displayMovie} />
