@@ -12,7 +12,7 @@
   justify-content: center;
   align-items: center;
   height: 25vh;
-  background: #1A0D0D;
+  background: #1a0d0d;
   position: relative;
   overflow: hidden;
 
@@ -56,7 +56,7 @@
   height: 75%;
   width: 60%;
 
-   img {
+  img {
     max-height: 100%;
     max-width: 100%;
     border-radius: 5px;
@@ -70,7 +70,6 @@
     font-weight: 700;
   }
 }
-
 
 /* Right Info Side */
 .info-right {
@@ -100,28 +99,28 @@
   border-radius: 5px;
 }
 
-  .genre-section {
-    font-size: 1.3vw;
-  }
+.genre-section {
+  font-size: 1.3vw;
+}
 
-  .genre-tags {
-    display: flex;
-    flex-direction: row;
-  }
+.genre-tags {
+  display: flex;
+  flex-direction: row;
+}
 
-  .genre {
-    background-color: rgba(120, 0, 0, 0.6);
-    font-size: 1.3vw;
-    margin: 2.5%;
-    border-radius: 3px;
-    width: 10vw;
-    height: 2.5vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+.genre {
+  background-color: rgba(120, 0, 0, 0.6);
+  font-size: 1.3vw;
+  margin: 2.5%;
+  border-radius: 3px;
+  width: 10vw;
+  height: 2.5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
- .home-btn {
+.home-btn {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -153,7 +152,6 @@ li {
 }
 
 @media screen and (max-width: 1024px) {
-
   .trailer {
     position: relative;
     overflow: hidden;
@@ -173,7 +171,7 @@ li {
     grid-template-columns: 1fr;
   }
 
-  .movie-info-container{
+  .movie-info-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -184,22 +182,21 @@ li {
     margin-bottom: 20vh;
 
     p {
-      font-size: 2vh
+      font-size: 2vh;
     }
   }
 
   .info-left {
     .tagline {
-      font-size: 3vh
+      font-size: 3vh;
     }
   }
 
-  .genre-section{
-    font-size: 2vh
+  .genre-section {
+    font-size: 2vh;
   }
 
-  .genre{
-    font-size: 1.4vh
+  .genre {
+    font-size: 1.4vh;
   }
-
 }
