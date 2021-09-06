@@ -43,6 +43,10 @@ form{
 }
 
 @media screen and (max-width: 1024px) {
+  
+  .search-bar{
+    margin-top: 5%;
+  }
 
   .search-btn, .display-all{
     width: 50%;
