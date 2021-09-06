@@ -5,7 +5,7 @@ import MovieInfo from "../MovieInfo/MovieInfo";
 import APICalls from "../API/APICalls";
 import Search from "../Search/Search";
 import Nav from "../Nav/Nav"
-import "./App.css";
+import "./App.scss";
 
 class App extends Component {
   constructor() {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import TomatoLogo from './white-tomato-icon.png'
-import './Nav.css'
+import './Nav.scss'
 
 const Nav = ({ updateMovieSelection }) => {
   return (
