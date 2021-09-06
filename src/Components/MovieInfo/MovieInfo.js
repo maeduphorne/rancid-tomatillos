@@ -107,8 +107,12 @@ class MovieInfo extends Component {
                 <iframe
                   width="560"
                   height="315"
+                  frameborder="0"
+                  gesture="media"
+                  allow="encrypted-media"
                   src={`https://www.youtube.com/embed/${this.state.movieTrailer}`}
                   title="YouTube video player"
+                  allowfullscreen
                 ></iframe>
               )}
             </section>
