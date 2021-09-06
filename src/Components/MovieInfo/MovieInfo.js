@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import APICalls from "../API/APICalls";
+import * as dayjs from 'dayjs';
 
 class MovieInfo extends Component {
   constructor(props) {
@@ -80,7 +81,7 @@ class MovieInfo extends Component {
               <section className="info-right">
                 <div className="right-wrapper">
                   <p>Overview: {overview}</p>
-                  <p> Release Date: {release_date}</p>
+                  <p> Release Date: {dayjs(release_date).format('MMMM D, YYYY')}</p>
                   <p>Runtime: {runtime} minutes</p>
                   <p>
                     {" "}
