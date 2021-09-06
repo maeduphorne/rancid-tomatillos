@@ -14,12 +14,21 @@
     font-weight: 700;
 }
 
+.tomato-logo {
+  height: 11vh;
+  padding: 3vh;
+}
+
 
 @media screen and (max-width: 1024px) {
   .title {
     height: 14vh;
     font-size: 55px;
   }
+
+  .tomato-logo {
+  height: 8vh;
+}
 }
 
 @media screen and (max-width: 768px) {
@@ -27,6 +36,9 @@
     height: 17vh;
     font-size: 40px;
   }
+  .tomato-logo {
+  height: 6vh;
+}
 }
 
 @media screen and (max-width: 600px) {
@@ -36,4 +48,7 @@
     margin-bottom: 15px;
     width: 100%;
   }
+    .tomato-logo {
+  height: 4vh;
+}
 }
