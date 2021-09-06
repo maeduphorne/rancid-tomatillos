@@ -4,6 +4,7 @@ import MoviesArea from "../MoviesArea/MoviesArea";
 import MovieInfo from "../MovieInfo/MovieInfo";
 import APICalls from "../API/APICalls";
 import Search from "../Search/Search";
+import Nav from "../Nav/Nav"
 import "./App.css";
 
 class App extends Component {
@@ -14,6 +15,7 @@ class App extends Component {
       error: "",
       searchInput: "",
       searchResult: [],
+      isMovieSelected: false,
     };
   }
 
@@ -27,9 +29,13 @@ class App extends Component {
       );
   };
 
+  updateMovieSelection = (state) => {
+    this.setState({isMovieSelected: state})
+  }
+
   setMovies = (searchResult) => {
     if (!searchResult.length) {
-      this.setState({error: 'Looks like we don\'t have that movie title - try searching another title.'})
+      this.setState({error: 'Uh oh! We can\'t find the title you\'re looking for - please try searching another title.'})
     } else {
       this.setState({searchResult, error: ''})
     }
@@ -45,11 +51,9 @@ class App extends Component {
   render() {
     return (
       <main className="App">
-        <header>
-        <h1 className="title">Rancid Tomatillos</h1>
-        {this.state.movies ? (<Search filterMovies={this.filterMovies} />) : null}
-        </header>
+        <Nav updateMovieSelection={this.updateMovieSelection}/>
         {this.state.error && <h2>{this.state.error}</h2>}
+        {this.state.movies && !this.state.isMovieSelected ? (<Search filterMovies={this.filterMovies} />) : null}
         {this.state.movies && this.state.searchResult && (
           <Route exact path="/" render={() => (
               <MoviesArea movies={this.state.searchResult} displayMovie={this.displayMovie} />
@@ -64,7 +68,7 @@ class App extends Component {
         )}
           <Route exact path="/:id" render={({ match }) => {
             const currentId = parseInt(match.params.id);
-            return <MovieInfo id={currentId} />}
+            return <MovieInfo id={currentId} updateMovieSelection={this.updateMovieSelection}/>}
           }
           />
       </main>

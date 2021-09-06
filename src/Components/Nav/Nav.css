@@ -1,0 +1,39 @@
+.title {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 20vh;
+    width: 100%;
+    background-color: #5e0000;
+    color: white;
+    margin-bottom: 15px;
+    font-family: 'Allan';
+    font-size: 80px;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+
+@media screen and (max-width: 1024px) {
+  .title {
+    height: 14vh;
+    font-size: 55px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    height: 17vh;
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .title {
+    height: 11vh;
+    font-size: 30px;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+}

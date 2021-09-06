@@ -21,12 +21,13 @@
     width: 100vw;
   }
 
-  .title {
+  .movie-title {
     position: absolute;
     font-size: 4vw;
     text-align: center;
     width: 90%;
     color: white;
+    font-family: 'Allan';
   }
 }
 
@@ -75,7 +76,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  align-items: flex-start;
+  // align-items: flex-start;
+  margin-top: 5%;
+  margin-bottom: 5%;
   height: 100%;
   color: white;
 
@@ -92,6 +95,7 @@
   width: 85%;
   padding: 2vw;
   background-color: rgba(0, 0, 0, 0.623);
+  border-radius: 5px;
 }
 
   .genre-section {
@@ -104,7 +108,7 @@
   }
 
   .genre {
-    background-color: rgba(255, 0, 0, 0.392);
+    background-color: rgba(120, 0, 0, 0.6);
     font-size: 1.3vw;
     margin: 2.5%;
     border-radius: 3px;
@@ -129,6 +133,7 @@
   border-radius: 3px;
   color: white;
   text-decoration: none;
+  font-weight: bold;
 
   &:hover {
     background-color: rgba(255, 0, 0, 0.392);
@@ -136,6 +141,18 @@
   }
 }
 
+.trailer {
+  padding-top: 20%;
+}
+
 li {
   list-style-type: none;
+}
+
+@media screen and (max-width: 1024px) {
+
+  .trailer {
+    padding-top: 10%;
+  }
+
 }

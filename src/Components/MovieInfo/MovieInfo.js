@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import APICalls from "../API/APICalls";
 
 class MovieInfo extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       selectedMovie: null,
       movieTrailer: null,
@@ -14,6 +14,7 @@ class MovieInfo extends Component {
   componentDidMount() {
     APICalls.fetchSingleMovieData(this.props.id)
       .then((data) => this.setState({ selectedMovie: data.movie }))
+      .then(this.props.updateMovieSelection(true))
       .catch((error) =>
         this.setState({ error: "Oops! We are unable to display this movie" })
       );
@@ -67,7 +68,7 @@ class MovieInfo extends Component {
                 src={backdrop_path}
                 alt={`backdrop of ${title}`}
               />
-              <h2 className="title">{title}</h2>
+              <h2 className="movie-title">{title}</h2>
             </section>
             <section className="movie-info">
               <section className="info-left">
@@ -94,7 +95,7 @@ class MovieInfo extends Component {
                   </div>
                   {budget !== 0 && <p>Budget: {`$${Intl.NumberFormat('en-US').format(budget)}`}</p>}
                   {revenue !== 0 && <p>Revenue: {`$${Intl.NumberFormat('en-US').format(revenue)}`}</p>}
-                  <Link to={"/"} className="home-btn">
+                  <Link to={"/"} className="home-btn" onClick={() => this.props.updateMovieSelection(false)}>
                     Return Home
                   </Link>
                 </div>

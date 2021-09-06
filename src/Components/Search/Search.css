@@ -1,14 +1,37 @@
-.search-bar {
-  height: 3vh;
-  width: 30vw;
+form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 10vh;
 }
 
-.search-btn {
-    height: 100%;
+.btn-styling{
   width: 30%;
+  padding: 1%;
+}
+
+.search-bar {
+  width: 30%;
+  outline: none;
+  padding: 5px;
+}
+.search-btn, .display-all{
+  background-color: black;
+  color: white;
+  font-family: 'Allan';
+  outline: none;
+}
+.search-btn {
+  margin-right: 5%;
+  margin-left: 5%;
+  width: 30%
 }
 
 .display-all {
-    height: 100%;
   width: 30%;
+}
+
+.search-btn:hover, .display-all:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.75), 0 17px 50px 0 rgba(0,0,0,0.5);
 }
