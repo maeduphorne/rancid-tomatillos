@@ -35,8 +35,10 @@ class Search extends Component {
           value={this.state.input}
           onChange={e => this.handleInput(e)}
         />
-        <button className="search-btn" type="submit" onClick={this.submitSearch}>Search</button>
-        <button className="display-all" type="submit" onClick={this.handleClear}>Display All</button>
+        <div className="btn-styling">
+          <button className="search-btn" type="submit" onClick={this.submitSearch}>Search</button>
+          <button className="display-all" type="submit" onClick={this.handleClear}>Display All</button>
+        </div>
       </form>)
     }
 }
