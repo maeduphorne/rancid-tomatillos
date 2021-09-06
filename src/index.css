@@ -8,7 +8,8 @@ body {
 }
 
 .font-link {
-  font-family: 'Allan', cursive;
+  font-family: 'Allan', 'Roboto', sans-serif;
+
 }
 
 code {
