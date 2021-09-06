@@ -8,11 +8,11 @@ class Search extends Component {
     }
   }
 
-  handleInput = async function(event) {
+  handleInput = async function(e) {
     //Since setState() function in asynchronous, we need to use await and async to make sure we are
-    // grabbing most recent typed input. 
-    await this.setState({input: event.target.value})
-    this.props.filterMovies(event.target.value)
+    // grabbing most recent typed input.
+    await this.setState({input: e.target.value})
+    this.props.filterMovies(e.target.value)
   }
 
   handleClear = () => {
@@ -35,6 +35,7 @@ class Search extends Component {
       </form>)
     }
 }
+// having issues with the search button - redisplaying all movies when search is hit
 
 
 
