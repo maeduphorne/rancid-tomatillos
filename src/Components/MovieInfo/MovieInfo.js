@@ -101,8 +101,7 @@ class MovieInfo extends Component {
                   </Link>
                 </div>
               </section>
-            </section>
-            <section className="trailer">
+              <section className="trailer">
               { this.state.movieTrailer !== null && (
                 <iframe
                   width="560"
@@ -114,7 +113,8 @@ class MovieInfo extends Component {
                   title="YouTube video player"
                   allowFullScreen
                 ></iframe>
-              )}
+                )}
+              </section>
             </section>
           </section>
         )}

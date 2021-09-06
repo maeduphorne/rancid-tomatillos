@@ -1,4 +1,5 @@
 .title {
+  text-decoration: none;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -10,8 +11,8 @@
   margin-bottom: 15px;
   font-family: 'Allan';
   font-size: 80px;
-  text-decoration: none;
   font-weight: 700;
+  text-shadow: 2px 2px 10px #000000;
 }
 
 .tomato-logo {
