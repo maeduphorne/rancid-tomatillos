@@ -2,15 +2,15 @@
 
 ## Table of Contents
   - [Introduction](#Introduction)
-  - [Technologies](##Technologies)
-  - [Contributors](##Contributors)
-  - [Illustrations](##Illustrations)
-  - [Deployed Page](##Deployed-Page)
-  - [Wins](##Wins)
-  - [Challenges & Improvements](##Challenges-&-Improvements)
-  - [Set Up](##Set-Up)
-  - [Sources](##Sources)
-  - [Project Specs](##Project-Specs)
+  - [Technologies](#Technologies)
+  - [Contributors](#Contributors)
+  - [Illustrations](#Illustrations)
+  - [Deployed Page](#Deployed-Page)
+  - [Wins](#Wins)
+  - [Challenges & Improvements](#Challenges-&-Improvements)
+  - [Set Up](#Set-Up)
+  - [Sources](#Sources)
+  - [Project Specs](#Project-Specs)
 
 ## Introduction
 
@@ -37,12 +37,18 @@ When visiting the application, a user is able to click a movie's poster to view 
 Visit our published [Rancid Tomatillos]()
 
 ## Wins
+  - Keeping good pacing throughout the project - meeting expectations on deadlines
+  - Self-teaching efficiently with new concepts
+  - Thorough testing using Cypress
+  - Using data down, actions up principles to enact a search feature
 
 ## Challenges & Improvements
-
-- Possible future improvements:
-  - Allow a user to search for movies by genre or rating
-  - Build our own backend using Express.js
+  - Deciding whether components should be functional or class components
+  - Troubleshooting async issues
+  - Possible future improvements:
+    - Allow a user to search for movies by genre or rating
+    - Incorporating Day.js to reformat a date from the API
+    - Build our own backend using Express.js
 
 ## Set Up
 
