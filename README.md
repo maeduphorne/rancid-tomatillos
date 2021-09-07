@@ -58,8 +58,9 @@ Visit our deployed [Rancid Tomatillos page!](http://rancid-tomatillos-maeanddarl
 ## Set Up
 
 1. Fork this repo  
-2. Clone the repo to your local machine
-3. View the project in the browser by running open localhost:3000 in your terminal
+2. Clone the repo to your local machine   
+3. Run `npm i`, then ` npm run build`, then. `npm start`
+4. View the project in the browser by opening localhost:3000
 
 ## Sources
   - [MDN](http://developer.mozilla.org/en-US/)
