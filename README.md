@@ -31,7 +31,7 @@ When visiting the application, a user is able to click a movie's poster to view 
 
 ## Illustrations
 
-
+![App](https://media.giphy.com/media/fiAsrxOydWYlzl4cJl/giphy.gif)
 
 ## Deployed Page
 
