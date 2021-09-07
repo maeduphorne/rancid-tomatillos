@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import APICalls from "../API/APICalls";
+import * as dayjs from "dayjs";
 
 class MovieInfo extends Component {
   constructor(props) {
@@ -26,14 +27,14 @@ class MovieInfo extends Component {
       );
   }
 
-   displayGenres() {
-    return this.state.selectedMovie.genres.map(genre => {
+  displayGenres() {
+    return this.state.selectedMovie.genres.map((genre) => {
       return (
         <div className="genre" key={Math.random()}>
           {genre}
         </div>
-      )
-    })
+      );
+    });
   }
 
   render() {
@@ -52,16 +53,13 @@ class MovieInfo extends Component {
       tagline,
       revenue,
       average_rating,
-      id
+      id,
     } = this.state.selectedMovie;
 
     return (
       <div>
         {this.state.selectedMovie !== null && (
-          <section
-            className="movie-info-container"
-            key={id}
-          >
+          <section className="movie-info-container" key={id}>
             <section className="banner">
               <img
                 className="backdrop"
@@ -80,7 +78,10 @@ class MovieInfo extends Component {
               <section className="info-right">
                 <div className="right-wrapper">
                   <p>Overview: {overview}</p>
-                  <p> Release Date: {release_date}</p>
+                  <p>
+                    {" "}
+                    Release Date: {dayjs(release_date).format("MMMM D, YYYY")}
+                  </p>
                   <p>Runtime: {runtime} minutes</p>
                   <p>
                     {" "}
@@ -89,25 +90,39 @@ class MovieInfo extends Component {
                   </p>
                   <div className="genre-section">
                     Genre:
-                    <div className="genre-tags">
-                    {this.displayGenres()}
-                    </div>
+                    <div className="genre-tags">{this.displayGenres()}</div>
                   </div>
-                  {budget !== 0 && <p>Budget: {`$${Intl.NumberFormat('en-US').format(budget)}`}</p>}
-                  {revenue !== 0 && <p>Revenue: {`$${Intl.NumberFormat('en-US').format(revenue)}`}</p>}
-                  <Link to={"/"} className="home-btn" onClick={() => this.props.updateMovieSelection(false)}>
+                  {budget !== 0 && (
+                    <p>
+                      Budget: {`$${Intl.NumberFormat("en-US").format(budget)}`}
+                    </p>
+                  )}
+                  {revenue !== 0 && (
+                    <p>
+                      Revenue:{" "}
+                      {`$${Intl.NumberFormat("en-US").format(revenue)}`}
+                    </p>
+                  )}
+                  <Link
+                    to={"/"}
+                    className="home-btn"
+                    onClick={() => this.props.updateMovieSelection(false)}
+                  >
                     Return Home
                   </Link>
                 </div>
               </section>
               <section className="trailer">
-              { this.state.movieTrailer !== null && (
-                <iframe
-                  width="560"
-                  height="315"
-                  src={`https://www.youtube.com/embed/${this.state.movieTrailer}`}
-                  title="YouTube video player"
-                ></iframe>
+                {this.state.movieTrailer !== null && (
+                  <iframe
+                    width="560"
+                    height="315"
+                    frameBorder="0"
+                    allow="autoplay"
+                    src={`https://www.youtube.com/embed/${this.state.movieTrailer}`}
+                    title="YouTube video player"
+                    allowFullScreen
+                  ></iframe>
                 )}
               </section>
             </section>

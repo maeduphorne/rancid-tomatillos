@@ -1,12 +1,13 @@
 describe('User Movie Area Flows', () => {
     beforeEach(() => {
-    cy.loadMain()
+    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/')
+    .visit('http://localhost:3000/')
   });
 
   describe('Main Page Render', () => {
 
   it('Should have a header with text Rancid Tomatillos on load', () => {
-    cy.contains('h1', 'Rancid Tomatillos')
+    cy.get('.title').contains('Rancid Tomatillos')
   });
 
   it('Should be able display all movies in dataset in the movie area with movie posters', () => {
@@ -19,6 +20,12 @@ describe('User Movie Area Flows', () => {
             cy.loadSingleMovieInfo()
             .url().should('eq', 'http://localhost:3000/694919')
             .url().should('not.eq', 'http://localhost:3000/');
+    })
+
+    it("Should contain a search bar", () => {
+    cy.get('form input[placeholder="Start Typing a Movie Title to Search"]')
+        .get('form input[type="text"]')
+        .get('form input[name="search"]')
     })
 
 });

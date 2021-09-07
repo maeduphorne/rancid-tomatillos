@@ -1,24 +1,19 @@
-import React from 'react';
-import MovieCard from '../MovieCard/MovieCard';
-import './MoviesArea.css';
-
+import React from "react";
+import MovieCard from "../MovieCard/MovieCard";
+import "./MoviesArea.scss";
 
 const MoviesArea = (props) => {
-  const movieCards = props.movies.map(movie => {
+  const movieCards = props.movies.map((movie) => {
     return (
-        <MovieCard
-          key={movie.id}
-          movieObj={movie}
-          displayMovie={props.displayMovie}
-        />
-    )
-  })
+      <MovieCard
+        key={movie.id}
+        movieObj={movie}
+        displayMovie={props.displayMovie}
+      />
+    );
+  });
 
-  return (
-    <div className='movies-area'>
-      {movieCards}
-    </div>
-  )
+  return <div className="movies-area">{movieCards}</div>;
 };
 
-export default MoviesArea
+export default MoviesArea;

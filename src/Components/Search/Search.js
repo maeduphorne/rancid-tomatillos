@@ -1,28 +1,26 @@
-import React, { Component } from 'react';
-import "./Search.css";
+import React, { Component } from "react";
+import "./Search.scss";
 class Search extends Component {
   constructor() {
     super();
     this.state = {
-      input: '',
-    }
+      input: "",
+    };
   }
 
-  handleInput = async function(e) {
-    //Since setState() function in asynchronous, we need to use await and async to make sure we are
-    // grabbing most recent typed input.
-    await this.setState({input: e.target.value})
-    this.props.filterMovies(e.target.value)
-  }
+  handleInput = async function (e) {
+    await this.setState({ input: e.target.value });
+    this.props.filterMovies(e.target.value);
+  };
 
   handleClear = () => {
-    this.setState({input: ''})
+    this.setState({ input: "" });
   };
 
   submitSearch = (e) => {
     e.preventDefault();
-    this.props.filterMovies(this.state.input)
-  }
+    this.props.filterMovies(this.state.input);
+  };
 
   render() {
     return (
@@ -33,19 +31,27 @@ class Search extends Component {
           placeholder="Start Typing a Movie Title to Search"
           name="search"
           value={this.state.input}
-          onChange={e => this.handleInput(e)}
+          onChange={(e) => this.handleInput(e)}
         />
         <div className="btn-styling">
-          <button className="search-btn" type="submit" onClick={this.submitSearch}>Search</button>
-          <button className="display-all" type="submit" onClick={this.handleClear}>Display All</button>
+          <button
+            className="search-btn"
+            type="submit"
+            onClick={this.submitSearch}
+          >
+            Search
+          </button>
+          <button
+            className="display-all"
+            type="submit"
+            onClick={this.handleClear}
+          >
+            Display All
+          </button>
         </div>
-      </form>)
-    }
+      </form>
+    );
+  }
 }
-// having issues with the search button - redisplaying all movies when search is hit
-
-
-
-
 
 export default Search;
