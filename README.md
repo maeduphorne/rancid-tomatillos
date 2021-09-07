@@ -31,8 +31,10 @@ When visiting the application, a user is able to click a movie's poster to view 
 
 ## Illustrations
 
+Full Screen App:
 ![App](https://media.giphy.com/media/fiAsrxOydWYlzl4cJl/giphy.gif)  
 
+IPhone view for responsive design:
 ![Phone View](https://media.giphy.com/media/zj9SeB6xD1NX9vJxJT/giphy.gif)
 
 ## Deployed Page
