@@ -33,7 +33,7 @@ When visiting the application, a user is able to click a movie's poster to view 
 
 ![App](https://media.giphy.com/media/fiAsrxOydWYlzl4cJl/giphy.gif)  
 
-![Phone View](https://media.giphy.com/media/zj9SeB6xD1NX9vJxJT/source.gif)
+![Phone View](https://media.giphy.com/media/zj9SeB6xD1NX9vJxJT/gify.gif)
 
 ## Deployed Page
 
